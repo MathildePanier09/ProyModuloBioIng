@@ -8,7 +8,6 @@ String id;
 String password; 
 Vector<Paciente> pacientes;
 public Coach(String name, String id, String password, Vector<Paciente> pacientes) {
-	super();
 	this.name = name;
 	this.id = id;
 	this.password = password;
@@ -37,6 +36,10 @@ public Vector<Paciente> getPacientes() {
 }
 public void setPacientes(Vector<Paciente> pacientes) {
 	this.pacientes = pacientes;
+}
+@Override
+public String toString() {
+	return "Coach [name=" + name + ", id=" + id + ", password=" + password + ", pacientes=" + pacientes + "]";
 } 
 
 
