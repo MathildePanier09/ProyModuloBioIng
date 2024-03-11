@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import users.Coach;
 import users.Paciente;
 
 public class RepoCredentialsPaciente {
@@ -164,6 +165,20 @@ public class RepoCredentialsPaciente {
 	        } else {
 	            System.out.println("Error: No se encontró ningún paciente con el nombre " + nombrePaciente);
 	        }
+	    }
+	    static Paciente findPacienteByName(String pacienteName) {
+	        // Obtener la lista de coaches
+	        Vector<Paciente> listaPaciente = RepoCredentialsPaciente.deserializeJson();
+
+	        // Buscar el coach por nombre
+	        for (Paciente paciente : listaPaciente) {
+	            if (paciente.getName().equalsIgnoreCase(pacienteName)) {
+	                return paciente;
+	            }
+	        }
+
+	        // Retorna null si no se encontró el paciente
+	        return null;
 	    }
 /*
 	    public static void main(String[] args) {

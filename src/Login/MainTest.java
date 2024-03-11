@@ -27,12 +27,12 @@ public class MainTest {
             System.out.println("6. Actualizar Coach");
             System.out.println("7. Eliminar Coach");
             System.out.println("8. Visualizar Coaches");
-            System.out.println("9. Salir");
-            System.out.print("Seleccione una opción (1-9): ");
+            System.out.println("9. Añadir Paciente a Coach");
+            System.out.println("10. Salir");
+            System.out.print("Seleccione una opción (1-10): ");
 
             int opcion = scanner.nextInt();
             scanner.nextLine();  
-
             switch (opcion) {
                 case 1:
                     // Crear Paciente
@@ -109,6 +109,12 @@ public class MainTest {
                     break;
 
                 case 9:
+                    // Añadir Paciente a Coach
+                    System.out.println("Añadir Paciente a Coach:");
+                    RepoCredentialsCoach.addPacienteToCoach();
+                    break;
+
+                case 10:
                     // Salir del programa
                     System.out.println("Saliendo del programa. ¡Hasta luego!");
                     System.exit(0);
