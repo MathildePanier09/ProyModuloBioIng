@@ -174,6 +174,54 @@ public class RepoCredentialsCoach {
 	        // Ejemplo de actualización de un coach por nombre
 	        updateCoach();
 	    }*/
+	    public static void updateMiUsuario() {
+	        Scanner scanner = new Scanner(System.in);
+	        Vector<Coach> listaCoach = (Vector<Coach>) deserializeJson();
 
+	        // Solicitar el nombre del Coach a actualizar
+	        System.out.print("Ingrese el nombre del Coach a actualizar: ");
+	        String nombreCoach = scanner.nextLine();
+
+	        // Buscar el paciente en la lista por su nombre
+	        Coach CoachAActualizar = null;
+	        for (Coach coach : listaCoach) {
+	            if (coach.getName().equalsIgnoreCase(nombreCoach)) {
+	            	CoachAActualizar = coach;
+	                break;
+	            }
+	        }
+
+	        // Actualizar el paciente si se encontró
+	        if (CoachAActualizar != null) {
+	            // Solicitar el atributo a modificar
+	            System.out.print("Ingrese el atributo a modificar (name/id/password): ");
+	            String atributoAModificar = scanner.nextLine().toLowerCase();
+
+	            // Realizar la modificación basada en el atributo seleccionado
+	            switch (atributoAModificar) {
+	                case "name":
+	                    System.out.print("Ingrese el nuevo nombre: ");
+	                    CoachAActualizar.setName(scanner.nextLine());
+	                    break;
+	                case "id":
+	                    System.out.print("Ingrese el nuevo ID: ");
+	                    CoachAActualizar.setId(scanner.nextLine());
+	                    break;
+	                case "password":
+	                    System.out.print("Ingrese la nueva contraseña: ");
+	                    CoachAActualizar.setPassword(scanner.nextLine());
+	                    break;
+	                default:
+	                    System.out.println("Error: Atributo no válido.");
+	                    return;
+	            }
+
+	            // Guardar los cambios en el registro
+	            serializeJson(listaCoach);
+	            System.out.println("Coach actualizado con éxito: " + CoachAActualizar);
+	        } else {
+	            System.out.println("Error: No se encontró ningún Coach con el nombre " + nombreCoach);
+	        }
+	    }
 		    
 }
