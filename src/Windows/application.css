@@ -1,0 +1,134 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.background{
+	-fx-background-color: #1e1e1e;
+}
+
+
+.boton1:hover{
+	-fx-text-fill: #ffffff;
+	-fx-underline: true;
+}	
+.boton2{
+	
+	-fx-background-radius: 50px;
+}
+.boton8:hover{
+	-fx-background-color: transparent;
+	-fx-text-fill: #a04ba3;
+	-fx-border-color: #a04ba3;
+	-fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-border-radius: 50px;
+}
+.boton9:hover{
+	-fx-background-color: transparent;
+	-fx-text-fill: #a04ba3;
+	-fx-border-color: #c72424;
+	-fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-border-radius: 50px;
+}
+.boton3{
+	-fx-background-color: /* #dde4e3*/ transparent;
+	-fx-text-fill: #a04ba3;
+	-fx-background-radius: 50px;
+	-fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-border-radius: 50px;
+}
+.boton6{
+	-fx-background-color: transparent;
+	-fx-text-fill: #ffffff;
+	-fx-border-color: #a04ba3;
+	-fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-border-radius: 50px;
+}
+.boton7{
+	-fx-background-color: transparent;
+	-fx-text-fill: #a04ba3;
+	-fx-border-color: transparent;
+	-fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-border-radius: 50px;
+}
+.boton8{
+
+	-fx-background-color: #a04ba3;
+	-fx-text-fill: white;
+	-fx-border-color: #a04ba3 ;
+	-fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-border-radius: 50px;
+}
+
+.boton9{
+	-fx-background-color: transparent;
+	-fx-text-fill: #a04ba3;
+	-fx-border-color: transparent;
+	-fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-border-radius: 50px;
+	
+}
+.section { 
+	-background-image: url(https://www.pinterest.com/pin/243405554852520353/.jpg);
+	-background-size: 100% auto;
+	
+}
+.diagonal-gradient {
+	
+  -fx-background-color: linear-gradient(to bottom right, black,  #a04ba3, #c59611);
+}
+.boton4{
+	 -fx-background-color: linear-gradient(to bottom right, black,  #a04ba3);
+	 -fx-text-fill: #ffffff;
+	 -fx-border-radius: 50px;
+}
+
+.color2{
+	-fx-background-color: #691b12;
+	
+}
+.label2{
+	-fx-background-color: transparent;
+	-fx-text-fill: #6685f2;
+	-fx-border-color: #c6cacc;
+	-fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-border-radius: 50px;
+}
+.diagonal-gradient2 {
+
+	
+  -fx-background-color: linear-gradient(to bottom right,  #6685f2,  #26ffed, black);
+}
+.label2{
+	-fx-background-color: transparent;
+	-fx-text-fill: white;
+	-fx-border-color: #a04ba3 ;
+	-fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-border-radius: 50px;
+}
+.boton5{
+	-fx-background-color: linear-gradient(to bottom right, #dde4e3, #1e1e1e, black);
+	-fx-text-fill: white;
+	-fx-background-radius: 50px;
+	-fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-border-radius: 50px;
+}
+
+.image{
+	-fx-opacity: 75;
+}
+
+.diagonal-gradient3 {
+	
+  -fx-background-color: linear-gradient(to bottom right, #1e1e1e, #b93523,#f8a736, #b93523, #1e1e1e);
+}
+.striped {
+  -fx-background: linear-gradient(to bottom left, #1e1e1e 50%, #a04ba3 50%);
+}
