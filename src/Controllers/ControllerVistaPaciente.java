@@ -4,8 +4,10 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import users.Paciente;
 
 public class ControllerVistaPaciente {
@@ -32,7 +34,8 @@ public class ControllerVistaPaciente {
 
     @FXML
     void salirAction(ActionEvent event) {
-
+    	Stage previousStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+		previousStage.close();
     }
 
     @FXML
