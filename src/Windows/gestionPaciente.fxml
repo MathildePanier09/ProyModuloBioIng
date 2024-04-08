@@ -3,10 +3,10 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -19,67 +19,66 @@
          </columnConstraints>
          <rowConstraints>
             <RowConstraints maxHeight="346.3333740234375" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="346.3333740234375" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <VBox alignment="TOP_CENTER" styleClass="body" stylesheets="@application.css">
                <children>
                   <VBox alignment="TOP_CENTER" spacing="20.0">
                      <children>
-                        <Label prefHeight="46.0" prefWidth="91.0" text="LOGIN" textFill="#a04ba3">
+                        <Label prefHeight="46.0" prefWidth="346.0" text="GESTIONAR PACIENTES" textFill="#a04ba3">
                            <font>
                               <Font name="Nirmala UI Bold" size="31.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets top="100.0" />
+                           </VBox.margin>
                         </Label>
                         <VBox alignment="CENTER" spacing="20.0">
                            <children>
                               <VBox spacing="10.0">
                                  <children>
-                                    <Label prefHeight="17.0" prefWidth="82.0" text="Id" textFill="#a04ba3">
-                                       <VBox.margin>
-                                          <Insets left="70.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font name="Nirmala UI" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="id" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su Id, por favor:" styleClass="label2" stylesheets="@application.css">
-                                       <opaqueInsets>
-                                          <Insets left="60.0" right="60.0" />
-                                       </opaqueInsets>
-                                       <VBox.margin>
-                                          <Insets bottom="10.0" left="60.0" right="60.0" />
-                                       </VBox.margin>
-                                    </TextField>
                                     <VBox />
-                                    <VBox>
-                                       <children>
-                                          <Label prefHeight="17.0" prefWidth="82.0" text="Contraseña" textFill="#a04ba3">
-                                             <VBox.margin>
-                                                <Insets left="70.0" />
-                                             </VBox.margin>
-                                             <font>
-                                                <Font name="Nirmala UI" size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="password" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su apellido, por favor:" styleClass="label2" stylesheets="@application.css">
-                                             <opaqueInsets>
-                                                <Insets left="60.0" right="60.0" />
-                                             </opaqueInsets>
-                                             <VBox.margin>
-                                                <Insets bottom="15.0" left="60.0" right="60.0" />
-                                             </VBox.margin>
-                                          </TextField>
-                                       </children>
-                                    </VBox>
+                                    <VBox />
                                  </children>
                               </VBox>
-                              <Button fx:id="entrarBttn" mnemonicParsing="false" onAction="#loginAction" styleClass="boton8" stylesheets="@application.css" text="entrar" />
                            </children>
                         </VBox>
                      </children>
                   </VBox>
                </children>
             </VBox>
+            <HBox>
+               <children>
+                  <Button fx:id="createBttn" mnemonicParsing="false" onAction="#create" styleClass="boton2" stylesheets="@application.css" text="Crear Paciente " textFill="#a04ba3">
+                     <HBox.margin>
+                        <Insets left="70.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="borrarBttn" mnemonicParsing="false" onAction="#borrar" styleClass="boton2" stylesheets="@application.css" text="Borrar Paciente " textFill="#a04ba3">
+                     <HBox.margin>
+                        <Insets left="150.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Button>
+               </children>
+               <GridPane.margin>
+                  <Insets top="300.0" />
+               </GridPane.margin>
+            </HBox>
+            <Button fx:id="salirBttn" mnemonicParsing="false" onAction="#salir" prefHeight="38.0" prefWidth="77.0" styleClass="boton2" stylesheets="@application.css" text="Salir" textFill="#a04ba3" GridPane.rowIndex="1">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="250.0" top="80.0" />
+               </GridPane.margin>
+            </Button>
          </children>
       </GridPane>
     </children>

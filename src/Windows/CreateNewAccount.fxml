@@ -42,7 +42,7 @@
                                           <Font name="Nirmala UI" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su Id, por favor:" styleClass="label2" stylesheets="@application.css">
+                                    <TextField fx:id="id" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su Id, por favor:" styleClass="label2" stylesheets="@application.css">
                                        <opaqueInsets>
                                           <Insets left="60.0" right="60.0" />
                                        </opaqueInsets>
@@ -60,7 +60,7 @@
                                                 <Font name="Nirmala UI" size="16.0" />
                                              </font>
                                           </Label>
-                                          <TextField prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su nombre, por favor:" styleClass="label2" stylesheets="@application.css">
+                                          <TextField fx:id="name" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su nombre, por favor:" styleClass="label2" stylesheets="@application.css">
                                              <opaqueInsets>
                                                 <Insets left="60.0" right="60.0" />
                                              </opaqueInsets>
@@ -80,7 +80,7 @@
                                                 <Font name="Nirmala UI" size="16.0" />
                                              </font>
                                           </Label>
-                                          <TextField prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su apellido, por favor:" styleClass="label2" stylesheets="@application.css">
+                                          <TextField fx:id="password" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su apellido, por favor:" styleClass="label2" stylesheets="@application.css">
                                              <opaqueInsets>
                                                 <Insets left="60.0" right="60.0" />
                                              </opaqueInsets>
@@ -92,7 +92,7 @@
                                     </VBox>
                                  </children>
                               </VBox>
-                              <Button mnemonicParsing="false" styleClass="boton8" stylesheets="@application.css" text="Sign Up" />
+                              <Button fx:id="signUpBttn" mnemonicParsing="false" onAction="#signUp" styleClass="boton8" stylesheets="@application.css" text="Sign Up" />
                            </children>
                         </VBox>
                      </children>
