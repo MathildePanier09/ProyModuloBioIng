@@ -166,7 +166,7 @@ public class RepoCredentialsPaciente {
 	            System.out.println("Error: No se encontró ningún paciente con el nombre " + nombrePaciente);
 	        }
 	    }
-	    static Paciente findPacienteByName(String pacienteName) {
+	    public static Paciente findPacienteByName(String pacienteName) {
 	        // Obtener la lista de coaches
 	        Vector<Paciente> listaPaciente = RepoCredentialsPaciente.deserializeJson();
 

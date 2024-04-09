@@ -46,9 +46,13 @@ public class ControllerGestionPacientes {
 		}
 	}
 
-	@FXML
 	void salir(ActionEvent event) {
-
+	    try {
+	        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+	        stage.close();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
 	}
 
 }
