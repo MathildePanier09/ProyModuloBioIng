@@ -16,17 +16,17 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import users.Coach;
-import users.Paciente;
+import users.Deportista;
 
 public class RepoCredentialsPaciente {
 	 private static String path = "repository/credentialsPaciente.json";
 	  
 		// ----------------------------SERIALIZAR Y DESERIALIZAR-------------------------------------
-		    public static Vector<Paciente> deserializeJson() {
-		        Vector<Paciente> loadedVector = new Vector<>();
+		    public static Vector<Deportista> deserializeJson() {
+		        Vector<Deportista> loadedVector = new Vector<>();
 		        try (Reader reader = new FileReader(path)) {
 		            Gson gson = new Gson();
-		            Type loadedList = new TypeToken<Vector<Paciente>>() {}.getType();
+		            Type loadedList = new TypeToken<Vector<Deportista>>() {}.getType();
 		            loadedVector = gson.fromJson(reader, loadedList);
 		        } catch (IOException e) {
 		            e.printStackTrace();
@@ -34,7 +34,7 @@ public class RepoCredentialsPaciente {
 		        return loadedVector;
 		    }
 
-		    public static void serializeJson(Vector<Paciente> vectorToBeSerialized) {
+		    public static void serializeJson(Vector<Deportista> vectorToBeSerialized) {
 		        Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
 
 		        try (FileWriter writer = new FileWriter(path)) {
@@ -72,8 +72,8 @@ public class RepoCredentialsPaciente {
 		}*/
 		    
 		// ----------------------------CREAR PACIENTE-------------------------------------
-	    public static void createPaciente(Paciente nuevoPaciente) {
-	        Vector<Paciente> listaPacientes = deserializeJson();
+	    public static void createPaciente(Deportista nuevoPaciente) {
+	        Vector<Deportista> listaPacientes = deserializeJson();
 
 	        // Verificar si el paciente ya existe en el registro
 	        boolean pacienteExistente = listaPacientes.stream().anyMatch(p -> p.getId().equals(nuevoPaciente.getId()));
@@ -96,11 +96,11 @@ public class RepoCredentialsPaciente {
 	 // ----------------------------ELIMINAR PACIENTE-------------------------------------
 	    
 	    public static void deletePaciente(String nombrePaciente) {
-	        Vector<Paciente> listaPacientes = deserializeJson();
+	        Vector<Deportista> listaPacientes = deserializeJson();
 
 	        // Buscar el paciente en la lista por su nombre
-	        Paciente pacienteAEliminar = null;
-	        for (Paciente paciente : listaPacientes) {
+	        Deportista pacienteAEliminar = null;
+	        for (Deportista paciente : listaPacientes) {
 	            if (paciente.getName().equalsIgnoreCase(nombrePaciente)) {
 	                pacienteAEliminar = paciente;
 	                break;
@@ -119,15 +119,15 @@ public class RepoCredentialsPaciente {
 	 // ----------------------------ACTUALIZAR PACIENTE POR NOMBRE-------------------------------------
 	    public static void updatePaciente() {
 	        Scanner scanner = new Scanner(System.in);
-	        Vector<Paciente> listaPacientes = deserializeJson();
+	        Vector<Deportista> listaPacientes = deserializeJson();
 
 	        // Solicitar el nombre del paciente a actualizar
 	        System.out.print("Ingrese el nombre del paciente a actualizar: ");
 	        String nombrePaciente = scanner.nextLine();
 
 	        // Buscar el paciente en la lista por su nombre
-	        Paciente pacienteAActualizar = null;
-	        for (Paciente paciente : listaPacientes) {
+	        Deportista pacienteAActualizar = null;
+	        for (Deportista paciente : listaPacientes) {
 	            if (paciente.getName().equalsIgnoreCase(nombrePaciente)) {
 	                pacienteAActualizar = paciente;
 	                break;
@@ -166,12 +166,12 @@ public class RepoCredentialsPaciente {
 	            System.out.println("Error: No se encontró ningún paciente con el nombre " + nombrePaciente);
 	        }
 	    }
-	    public static Paciente findPacienteByName(String pacienteName) {
+	    public static Deportista findPacienteByName(String pacienteName) {
 	        // Obtener la lista de coaches
-	        Vector<Paciente> listaPaciente = RepoCredentialsPaciente.deserializeJson();
+	        Vector<Deportista> listaPaciente = RepoCredentialsPaciente.deserializeJson();
 
 	        // Buscar el coach por nombre
-	        for (Paciente paciente : listaPaciente) {
+	        for (Deportista paciente : listaPaciente) {
 	            if (paciente.getName().equalsIgnoreCase(pacienteName)) {
 	                return paciente;
 	            }

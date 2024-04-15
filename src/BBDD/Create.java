@@ -8,14 +8,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
 import users.Coach;
-import users.Paciente;
+import users.Deportista; // Cambio de Paciente a Deportista
 
 public class Create {
     private static final String URL = "jdbc:mariadb://localhost:3306/ProyModuloBioIng";
     private static final String USER = "root";
     private static final String PASS = "";
 
-   
     public int createCoach(String name, String password) {
         int newCoachId = 0;
         Connection conn = null;
@@ -47,8 +46,8 @@ public class Create {
         return newCoachId;
     }
 
-    public int createPaciente(String name, String password) {
-        int newPacienteId = 0;
+    public int createDeportista(String name, String password) { // Cambio de createPaciente a createDeportista
+        int newDeportistaId = 0; // Cambio de newPacienteId a newDeportistaId
         Connection conn = null;
         PreparedStatement pstmtInsert = null;
 
@@ -56,7 +55,7 @@ public class Create {
             Class.forName("org.mariadb.jdbc.Driver");
             conn = DriverManager.getConnection(URL, USER, PASS);
 
-            String insertSql = "INSERT INTO PACIENTE (name, pass) VALUES (?, ?)";
+            String insertSql = "INSERT INTO DEPORTISTA (name, pass) VALUES (?, ?)"; // Cambio de PACIENTE a DEPORTISTA
             pstmtInsert = conn.prepareStatement(insertSql, Statement.RETURN_GENERATED_KEYS);
             pstmtInsert.setString(1, name);
             pstmtInsert.setString(2, password);
@@ -66,7 +65,7 @@ public class Create {
             if (rowsInserted > 0) {
                 ResultSet generatedKeys = pstmtInsert.getGeneratedKeys();
                 if (generatedKeys.next()) {
-                    newPacienteId = generatedKeys.getInt(1);
+                    newDeportistaId = generatedKeys.getInt(1); // Cambio de newPacienteId a newDeportistaId
                 }
             }
         } catch (SQLException | ClassNotFoundException e) {
@@ -75,10 +74,10 @@ public class Create {
             // Cerrar recursos
         }
 
-        return newPacienteId;
+        return newDeportistaId; // Cambio de newPacienteId a newDeportistaId
     }
 
-    public void relateCoachToPaciente(int coachId, int pacienteId) {
+    public void relateCoachToDeportista(int coachId, int deportistaId) { // Cambio de relateCoachToPaciente a relateCoachToDeportista
         Connection conn = null;
         PreparedStatement pstmtInsert = null;
 
@@ -86,10 +85,10 @@ public class Create {
             Class.forName("org.mariadb.jdbc.Driver");
             conn = DriverManager.getConnection(URL, USER, PASS);
 
-            String insertSql = "INSERT INTO COACH_PACIENTE (coach_id, paciente_id) VALUES (?, ?)";
+            String insertSql = "INSERT INTO COACH_DEPORTISTA (coach_id, deportista_id) VALUES (?, ?)"; // Cambio de COACH_PACIENTE a COACH_DEPORTISTA
             pstmtInsert = conn.prepareStatement(insertSql);
             pstmtInsert.setInt(1, coachId);
-            pstmtInsert.setInt(2, pacienteId);
+            pstmtInsert.setInt(2, deportistaId); // Cambio de pacienteId a deportistaId
 
             pstmtInsert.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
@@ -102,13 +101,13 @@ public class Create {
     public static void main(String[] args) {
         Create creator = new Create();
        
-        // Ejemplo de creación de un coach y un paciente
+        // Ejemplo de creación de un coach y un deportista
         int coachId = creator.createCoach("CoachName", "CoachPass");
-        int pacienteId = creator.createPaciente("PacienteName", "PacientePass");
+        int deportistaId = creator.createDeportista("DeportistaName", "DeportistaPass"); // Cambio de PacienteName a DeportistaName
 
-        // Ejemplo de relación entre coach y paciente
-        if (coachId != 0 && pacienteId != 0) {
-            creator.relateCoachToPaciente(coachId, pacienteId);
+        // Ejemplo de relación entre coach y deportista
+        if (coachId != 0 && deportistaId != 0) { // Cambio de pacienteId a deportistaId
+            creator.relateCoachToDeportista(coachId, deportistaId); // Cambio de relateCoachToPaciente a relateCoachToDeportista
         }
     }
 }

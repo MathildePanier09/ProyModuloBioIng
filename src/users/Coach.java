@@ -6,8 +6,8 @@ public class Coach {
 String name; 
 String id; 
 String password; 
-Vector<Paciente> pacientes;
-public Coach(String name, String id, String password, Vector<Paciente> pacientes) {
+Vector<Deportista> pacientes;
+public Coach(String name, String id, String password, Vector<Deportista> pacientes) {
 	this.name = name;
 	this.id = id;
 	this.password = password;
@@ -31,10 +31,10 @@ public String getPassword() {
 public void setPassword(String password) {
 	this.password = password;
 }
-public Vector<Paciente> getPacientes() {
+public Vector<Deportista> getPacientes() {
 	return pacientes;
 }
-public void setPacientes(Vector<Paciente> pacientes) {
+public void setPacientes(Vector<Deportista> pacientes) {
 	this.pacientes = pacientes;
 }
 @Override

@@ -1,6 +1,6 @@
 package users;
 
-public class Paciente {
+public class Deportista {
 String name; 
 String id;
 String password;
@@ -22,7 +22,7 @@ public String getPassword() {
 public void setPassword(String password) {
 	this.password = password;
 }
-public Paciente(String name, String id, String password) {
+public Deportista(String name, String id, String password) {
 	super();
 	this.name = name;
 	this.id = id;

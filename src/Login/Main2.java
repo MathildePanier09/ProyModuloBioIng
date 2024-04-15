@@ -5,7 +5,7 @@ import java.util.Vector;
 import Repository.RepoCredentialsCoach;
 import Repository.RepoCredentialsPaciente;
 import users.Coach;
-import users.Paciente;
+import users.Deportista;
 
 public class Main2 {
 
@@ -44,7 +44,7 @@ public class Main2 {
                     System.out.print("Ingrese la contraseña del nuevo paciente: ");
                     String passwordPaciente = scanner.nextLine();
 
-                    Paciente nuevoPaciente = new Paciente(nombrePaciente, idPaciente, passwordPaciente);
+                    Deportista nuevoPaciente = new Deportista(nombrePaciente, idPaciente, passwordPaciente);
                     RepoCredentialsPaciente.createPaciente(nuevoPaciente);
                     break;
 
@@ -65,8 +65,8 @@ public class Main2 {
                 case 4:
                     // Visualizar Registro de Pacientes
                     System.out.println("Registro de Pacientes:");
-                    Vector<Paciente> pacientes = RepoCredentialsPaciente.deserializeJson();
-                    for (Paciente paciente : pacientes) {
+                    Vector<Deportista> pacientes = RepoCredentialsPaciente.deserializeJson();
+                    for (Deportista paciente : pacientes) {
                         System.out.println(paciente);
                     }
                     break;

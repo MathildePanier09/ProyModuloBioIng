@@ -8,12 +8,12 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import users.Paciente;
+import users.Deportista;
 
 public class ControllerVistaPaciente {
 	
 
-    public ControllerVistaPaciente( Paciente paciente) {
+    public ControllerVistaPaciente( Deportista paciente) {
 		super();
 		this.idPaciente = idPaciente;
 		this.visualizeBttn = visualizeBttn;
@@ -30,7 +30,7 @@ public class ControllerVistaPaciente {
     @FXML
     private Button salirBttn;
     
-    private Paciente paciente;
+    private Deportista paciente;
 
     @FXML
     void salirAction(ActionEvent event) {

@@ -16,7 +16,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import users.Coach;
-import users.Paciente;
+import users.Deportista;
 import Repository.RepoCredentialsPaciente;
 
 public class RepoCredentialsCoach {
@@ -191,7 +191,7 @@ public class RepoCredentialsCoach {
 	public static void addPacienteToCoach() {
 		Coach coach = returnCoach();
 		Scanner scanner = new Scanner(System.in);
-		 Vector<Paciente> listaPacientes = RepoCredentialsPaciente.deserializeJson();
+		 Vector<Deportista> listaPacientes = RepoCredentialsPaciente.deserializeJson();
 		 Vector<Coach> listaCoach = deserializeJson();
 
 		// Verificar si se encontró el coach
@@ -202,7 +202,7 @@ public class RepoCredentialsCoach {
 			String nombrePaciente = scanner.nextLine();
 			
 			if (RepoCredentialsPaciente.findPacienteByName(nombrePaciente) != null) {
-				Paciente paciente = RepoCredentialsPaciente.findPacienteByName(nombrePaciente);
+				Deportista paciente = RepoCredentialsPaciente.findPacienteByName(nombrePaciente);
 				updateCoachConPacientes(coach,paciente);
 			
 			}
@@ -224,7 +224,7 @@ public class RepoCredentialsCoach {
 		return null;
 	}
 	
-	public static void updateCoachConPacientes(Coach coach, Paciente paciente) {
+	public static void updateCoachConPacientes(Coach coach, Deportista paciente) {
 	    // Deserializar la lista actual de coaches
 	    Vector<Coach> listaCoach = deserializeJson();
 
@@ -240,7 +240,7 @@ public class RepoCredentialsCoach {
 	    // Verificar si el coach se encontró en la lista
 	    if (coachEnLista != null) {
 	        // Obtener el vector de pacientes del coach en la lista
-	        Vector<Paciente> pacientes = coachEnLista.getPacientes();
+	        Vector<Deportista> pacientes = coachEnLista.getPacientes();
 
 	        // Verificar si el vector de pacientes es nulo
 	        if (pacientes == null) {
