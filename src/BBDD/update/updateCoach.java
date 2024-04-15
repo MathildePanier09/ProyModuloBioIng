@@ -10,31 +10,75 @@ public class updateCoach {
 	    private static final String USER = "root";
 	    private static final String PASS = "";
 
-	    public boolean updateCoach(int coachId, String newName, String newPassword) {
-	        boolean updated = false;
-	        Connection conn = null;
-	        PreparedStatement pstmtUpdate = null;
+	        public static boolean updateCoachName(int coachId, String newName) {
+	            boolean updated = false;
 
-	        try {
-	            Class.forName("org.mariadb.jdbc.Driver");
-	            conn = DriverManager.getConnection(URL, USER, PASS);
+	            Connection conn = null;
+	            PreparedStatement pstmtUpdate = null;
 
-	            String updateSql = "UPDATE COACH SET name = ?, pass = ? WHERE id = ?";
-	            pstmtUpdate = conn.prepareStatement(updateSql);
-	            pstmtUpdate.setString(1, newName);
-	            pstmtUpdate.setString(2, newPassword);
-	            pstmtUpdate.setInt(3, coachId);
+	            try {
+	                // Paso 1: Registrar el controlador JDBC y establecer la conexión
+	                Class.forName("org.mariadb.jdbc.Driver");
+	                conn = DriverManager.getConnection(URL, USER, PASS);
 
-	            int rowsUpdated = pstmtUpdate.executeUpdate();
-	            if (rowsUpdated > 0) {
-	                updated = true;
+	                // Paso 2: Actualizar el nombre del entrenador
+	                String updateSql = "UPDATE COACH SET name = ? WHERE id = ?";
+	                pstmtUpdate = conn.prepareStatement(updateSql);
+	                pstmtUpdate.setString(1, newName);
+	                pstmtUpdate.setInt(2, coachId);
+	                int rowsUpdated = pstmtUpdate.executeUpdate();
+	                if (rowsUpdated > 0) {
+	                    updated = true;
+	                }
+
+	            } catch (SQLException | ClassNotFoundException e) {
+	                e.printStackTrace();
+	            } finally {
+	                // Cerrar recursos
+	                try {
+	                    if (pstmtUpdate != null) pstmtUpdate.close();
+	                    if (conn != null) conn.close();
+	                } catch (SQLException se) {
+	                    se.printStackTrace();
+	                }
 	            }
-	        } catch (SQLException | ClassNotFoundException e) {
-	            e.printStackTrace();
-	        } finally {
-	            // Cerrar recursos
+
+	            return updated;
 	        }
 
-	        return updated;
+	        public static boolean updateCoachPassword(int coachId, String newPassword) {
+	            boolean updated = false;
+
+	            Connection conn = null;
+	            PreparedStatement pstmtUpdate = null;
+
+	            try {
+	                // Paso 1: Registrar el controlador JDBC y establecer la conexión
+	                Class.forName("org.mariadb.jdbc.Driver");
+	                conn = DriverManager.getConnection(URL, USER, PASS);
+
+	                // Paso 2: Actualizar la contraseña del entrenador
+	                String updateSql = "UPDATE COACH SET pass = ? WHERE id = ?";
+	                pstmtUpdate = conn.prepareStatement(updateSql);
+	                pstmtUpdate.setString(1, newPassword);
+	                pstmtUpdate.setInt(2, coachId);
+	                int rowsUpdated = pstmtUpdate.executeUpdate();
+	                if (rowsUpdated > 0) {
+	                    updated = true;
+	                }
+
+	            } catch (SQLException | ClassNotFoundException e) {
+	                e.printStackTrace();
+	            } finally {
+	                // Cerrar recursos
+	                try {
+	                    if (pstmtUpdate != null) pstmtUpdate.close();
+	                    if (conn != null) conn.close();
+	                } catch (SQLException se) {
+	                    se.printStackTrace();
+	                }
+	            }
+
+	            return updated;
+	        }
 	    }
-}

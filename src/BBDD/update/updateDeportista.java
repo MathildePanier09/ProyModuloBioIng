@@ -5,58 +5,80 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import BBDD.Update;
-
 public class updateDeportista {
-		  private static final String URL = "jdbc:mariadb://localhost:3306/ProyModuloBioIng";
-		    private static final String USER = "root";
-		    private static final String PASS = "";
-		    public boolean updateDeportista(int deportistaId, String newName, String newPassword) {
-		        boolean updated = false;
-		        Connection conn = null;
-		        PreparedStatement pstmtUpdate = null;
+    private static final String URL = "jdbc:mariadb://localhost:3306/ProyModuloBioIng";
+    private static final String USER = "root";
+    private static final String PASS = "";
 
-		        try {
-		            Class.forName("org.mariadb.jdbc.Driver");
-		            conn = DriverManager.getConnection(URL, USER, PASS);
+    public static boolean updateDeportistaName(int deportistaId, String newName) {
+        boolean updated = false;
 
-		            String updateSql = "UPDATE DEPORTISTA SET name = ?, pass = ? WHERE id = ?";
-		            pstmtUpdate = conn.prepareStatement(updateSql);
-		            pstmtUpdate.setString(1, newName);
-		            pstmtUpdate.setString(2, newPassword);
-		            pstmtUpdate.setInt(3, deportistaId);
+        Connection conn = null;
+        PreparedStatement pstmtUpdate = null;
 
-		            int rowsUpdated = pstmtUpdate.executeUpdate();
-		            if (rowsUpdated > 0) {
-		                updated = true;
-		            }
-		        } catch (SQLException | ClassNotFoundException e) {
-		            e.printStackTrace();
-		        } finally {
-		            // Cerrar recursos
-		        }
+        try {
+            // Paso 1: Registrar el controlador JDBC y establecer la conexión
+            Class.forName("org.mariadb.jdbc.Driver");
+            conn = DriverManager.getConnection(URL, USER, PASS);
 
-		        return updated;
-		    }
+            // Paso 2: Actualizar el nombre del deportista
+            String updateSql = "UPDATE DEPORTISTA SET name = ? WHERE id = ?";
+            pstmtUpdate = conn.prepareStatement(updateSql);
+            pstmtUpdate.setString(1, newName);
+            pstmtUpdate.setInt(2, deportistaId);
+            int rowsUpdated = pstmtUpdate.executeUpdate();
+            if (rowsUpdated > 0) {
+                updated = true;
+            }
 
-		    public static void main(String[] args) {
-		        Update updater = new Update();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            // Cerrar recursos
+            try {
+                if (pstmtUpdate != null) pstmtUpdate.close();
+                if (conn != null) conn.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
 
-		        // Ejemplo de actualización de un entrenador
-		        boolean coachUpdated = updater.updateCoach(1, "NuevoNombreEntrenador", "NuevaContraseñaEntrenador");
-		        if (coachUpdated) {
-		            System.out.println("¡Entrenador actualizado con éxito!");
-		        } else {
-		            System.out.println("Error al actualizar el entrenador.");
-		        }
+        return updated;
+    }
 
-		        // Ejemplo de actualización de un deportista
-		        boolean deportistaUpdated = updater.updateDeportista(1, "NuevoNombreDeportista", "NuevaContraseñaDeportista");
-		        if (deportistaUpdated) {
-		            System.out.println("¡Deportista actualizado con éxito!");
-		        } else {
-		            System.out.println("Error al actualizar el deportista.");
-		        }
-		    }
-		}
+    public static boolean updateDeportistaPassword(int deportistaId, String newPassword) {
+        boolean updated = false;
 
+        Connection conn = null;
+        PreparedStatement pstmtUpdate = null;
+
+        try {
+            // Paso 1: Registrar el controlador JDBC y establecer la conexión
+            Class.forName("org.mariadb.jdbc.Driver");
+            conn = DriverManager.getConnection(URL, USER, PASS);
+
+            // Paso 2: Actualizar la contraseña del deportista
+            String updateSql = "UPDATE DEPORTISTA SET pass = ? WHERE id = ?";
+            pstmtUpdate = conn.prepareStatement(updateSql);
+            pstmtUpdate.setString(1, newPassword);
+            pstmtUpdate.setInt(2, deportistaId);
+            int rowsUpdated = pstmtUpdate.executeUpdate();
+            if (rowsUpdated > 0) {
+                updated = true;
+            }
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            // Cerrar recursos
+            try {
+                if (pstmtUpdate != null) pstmtUpdate.close();
+                if (conn != null) conn.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
+
+        return updated;
+    }
+}
