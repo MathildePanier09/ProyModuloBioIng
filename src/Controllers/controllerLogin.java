@@ -14,7 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import users.Paciente;
+import users.Deportista;
 
 public class controllerLogin {
 
@@ -36,7 +36,7 @@ public class controllerLogin {
 	        String contrasena = password.getText(); // Reemplaza "passwordTextField" con el nombre de tu campo de texto de contraseña en la interfaz gráfica
 	        
 	        // Buscar al paciente por su nombre de usuario
-	        Paciente paciente = RepoCredentialsPaciente.findPacienteByName(nombreUsuario);
+	        Deportista paciente = RepoCredentialsPaciente.findPacienteByName(nombreUsuario);
 	        
 	        if (paciente != null && paciente.getPassword().equals(contrasena)) {
 	            // Las credenciales son válidas, puedes proceder con la acción deseada
