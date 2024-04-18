@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
 
-import BBDD.update.UpdateCar;
+
 
 public class Relate {
 	private static final String URL = "jdbc:mariadb://localhost:3306/pilotech";
