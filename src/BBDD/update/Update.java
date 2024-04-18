@@ -66,11 +66,11 @@ public class Update {
         Update updater = new Update();
 
         // Ejemplo de actualización de un coach
-        updater.updateCoachName(3, "NewCoachName");
-        updater.updateCoachPassword(3, "NewCoachPass");
+        updater.updateCoachName(3, "TestName");
+        updater.updateCoachPassword(3, "CoachPass");
 
         // Ejemplo de actualización de un deportista
-        updater.updateDeportistaName(1, "NewDeportistaName");
-        updater.updateDeportistaPassword(1, "NewDeportistaPass");
+        updater.updateDeportistaName(1, "TestName");
+        updater.updateDeportistaPassword(1, "DeportistaPass");
     }
 }

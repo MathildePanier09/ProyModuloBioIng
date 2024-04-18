@@ -16,6 +16,7 @@ public class Create {
         createTablesIfNotExist();
     }
 
+    //--------------------CREAR TABLAS DE USUARIOS Y RELACION ---------------------
     private void createTablesIfNotExist() {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
             // Crear tabla COACH si no existe
@@ -86,7 +87,7 @@ public class Create {
         return newDeportistaId;
     }
 
-    public void relateCoachToDeportista(int coachId, int deportistaId) {
+    public static void relateCoachToDeportista(int coachId, int deportistaId) {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
             String insertSql = "INSERT INTO COACH_DEPORTISTA (coach_id, deportista_id) VALUES (?, ?)";
             try (PreparedStatement pstmt = conn.prepareStatement(insertSql)) {
@@ -99,17 +100,76 @@ public class Create {
             e.printStackTrace();
         }
     }
+ 
+    
+    
+    //--------------------SIGNUP : CREAR USUARIOS SEGUN EL TIPO DE USUARIO ---------------------
+    // Esta funcion sirve para signUp : pide el nombre (name) y una contrasena. El id se genera
+    // automaticamente y la funcion lo devuelve
+    public static int signUpDeportista(String name, String password) {
+        int newDeportistaId = 0;
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
+            String insertSql = "INSERT INTO DEPORTISTA (name, pass) VALUES (?, ?)";
+            try (PreparedStatement pstmt = conn.prepareStatement(insertSql, Statement.RETURN_GENERATED_KEYS)) {
+                pstmt.setString(1, name);
+                pstmt.setString(2, password);
+
+                int rowsInserted = pstmt.executeUpdate();
+
+                if (rowsInserted > 0) {
+                    ResultSet generatedKeys = pstmt.getGeneratedKeys();
+                    if (generatedKeys.next()) {
+                        newDeportistaId = generatedKeys.getInt(1);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println(newDeportistaId);
+        return newDeportistaId;
+    }
+
+    // Esta funcion sirve para signUp : pide el nombre (name) y una contrasena. El id se genera
+    // automaticamente y la funcion lo devuelve
+    public static int signUpCoach(String name, String password) {
+        int newCoachId = 0;
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
+            String insertSql = "INSERT INTO COACH (name, pass) VALUES (?, ?)";
+            try (PreparedStatement pstmt = conn.prepareStatement(insertSql, Statement.RETURN_GENERATED_KEYS)) {
+                pstmt.setString(1, name);
+                pstmt.setString(2, password);
+
+                int rowsInserted = pstmt.executeUpdate();
+
+                if (rowsInserted > 0) {
+                    ResultSet generatedKeys = pstmt.getGeneratedKeys();
+                    if (generatedKeys.next()) {
+                        newCoachId = generatedKeys.getInt(1);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println(newCoachId);
+        return newCoachId;
+    }
+
 
     public static void main(String[] args) {
-        Create creator = new Create();
+        //Create creator = new Create();
 
         // Ejemplo de creación de un coach y un deportista
-        int coachId = creator.createCoach("Coach2", "Pass");
-        int deportistaId = creator.createDeportista("Deportista2", "Pass");
+        //int coachId = creator.createCoach("Coach2", "Pass");
+        //int deportistaId = creator.createDeportista("Deportista2", "Pass");
 
         // Ejemplo de relación entre coach y deportista
-        if (coachId != 0 && deportistaId != 0) {
-            creator.relateCoachToDeportista(coachId, deportistaId);
-        }
+        //if (coachId != 0 && deportistaId != 0) {
+            //creator.relateCoachToDeportista(coachId, deportistaId);
+        //}
+    	//signUpDeportista("NombreTest", "PasswordTest");
+    	//signUpCoach("NombreTest", "PasswordTest");
+    	relateCoachToDeportista(7, 7);
     }
 }

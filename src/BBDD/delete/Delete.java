@@ -69,10 +69,10 @@ public class Delete {
         Delete deleter = new Delete();
 
         // Ejemplo de eliminación de un coach y un deportista
-        deleter.deleteCoach(1);
-        deleter.deleteDeportista(2);
+       // deleter.deleteCoach(6);
+       // deleter.deleteDeportista(6);
 
         // Ejemplo de eliminación de un deportista de un coach
-       // deleter.deleteDeportistaFromCoach(2, 2);
+        deleter.deleteDeportistaFromCoach(7, 7);
     }
 }
