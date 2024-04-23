@@ -25,7 +25,7 @@
                <children>
                   <VBox alignment="TOP_CENTER" spacing="20.0">
                      <children>
-                        <Label prefHeight="46.0" prefWidth="91.0" text="LOGIN" textFill="#a04ba3">
+                        <Label fx:id="loginLbl" prefHeight="46.0" prefWidth="103.0" text="LOGIN" textFill="#a04ba3">
                            <font>
                               <Font name="Nirmala UI Bold" size="31.0" />
                            </font>
@@ -34,7 +34,7 @@
                            <children>
                               <VBox spacing="10.0">
                                  <children>
-                                    <Label prefHeight="17.0" prefWidth="82.0" text="Id" textFill="#a04ba3">
+                                    <Label fx:id="idLbl" prefHeight="17.0" prefWidth="82.0" text="Id" textFill="#a04ba3">
                                        <VBox.margin>
                                           <Insets left="70.0" />
                                        </VBox.margin>
@@ -42,7 +42,7 @@
                                           <Font name="Nirmala UI" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="id" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su Id, por favor:" styleClass="label2" stylesheets="@application.css">
+                                    <TextField fx:id="idTxtField" onAction="#writeId" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su ID" styleClass="label2" stylesheets="@application.css">
                                        <opaqueInsets>
                                           <Insets left="60.0" right="60.0" />
                                        </opaqueInsets>
@@ -53,7 +53,7 @@
                                     <VBox />
                                     <VBox>
                                        <children>
-                                          <Label prefHeight="17.0" prefWidth="82.0" text="Contraseña" textFill="#a04ba3">
+                                          <Label fx:id="passLbl" prefHeight="17.0" prefWidth="82.0" text="Contraseña" textFill="#a04ba3">
                                              <VBox.margin>
                                                 <Insets left="70.0" />
                                              </VBox.margin>
@@ -61,19 +61,19 @@
                                                 <Font name="Nirmala UI" size="16.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="password" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su apellido, por favor:" styleClass="label2" stylesheets="@application.css">
+                                          <TextField fx:id="passTxtField" onAction="#writePass" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su contraseña" styleClass="label2" stylesheets="@application.css">
                                              <opaqueInsets>
                                                 <Insets left="60.0" right="60.0" />
                                              </opaqueInsets>
                                              <VBox.margin>
-                                                <Insets bottom="15.0" left="60.0" right="60.0" />
+                                                <Insets bottom="15.0" left="60.0" right="60.0" top="5.0" />
                                              </VBox.margin>
                                           </TextField>
                                        </children>
                                     </VBox>
                                  </children>
                               </VBox>
-                              <Button fx:id="entrarBttn" mnemonicParsing="false" onAction="#loginAction" styleClass="boton8" stylesheets="@application.css" text="entrar" />
+                              <Button fx:id="entrarBttn" mnemonicParsing="false" onAction="#loginAction" styleClass="boton8" stylesheets="@application.css" text="Entrar" />
                            </children>
                         </VBox>
                      </children>

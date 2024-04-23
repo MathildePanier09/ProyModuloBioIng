@@ -1,5 +1,5 @@
 package Controllers;
-import application.controller.login.ControllerLoginDef;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class ControllerGestionPacientes {
+public class ControllerGestionDeportistas {
 
 	@FXML
 	private Button createBttn;
@@ -29,7 +29,7 @@ public class ControllerGestionPacientes {
 	void create(ActionEvent event) {
 		try {
 			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/CreateNewAccount.fxml"));
-			ControllerNewAccount controlLogin = new ControllerNewAccount();
+			ControllerCreateNewAccount controlLogin = new ControllerCreateNewAccount();
 
 			Stage actualStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
 

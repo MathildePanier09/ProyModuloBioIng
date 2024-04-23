@@ -7,8 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-
-import Login.Login;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +21,7 @@ import javafx.stage.Stage;
 import users.Coach;
 import users.Deportista;
 
-public class controllerLogin implements Initializable{
+public class ControllerLogin implements Initializable{
 	
 
     @FXML
@@ -118,7 +116,7 @@ public class controllerLogin implements Initializable{
     private void openCoachView(ActionEvent event, Coach coach) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/CoachView.fxml"));
-            ControllerVistaCoach controller = new ControllerVistaCoach(coach);
+            ControllerCoachView controller = new ControllerCoachView(coach);
             loader.setController(controller);
 
             Parent root = loader.load();
@@ -138,7 +136,7 @@ public class controllerLogin implements Initializable{
     private void openDeportistaView(ActionEvent event, Deportista deportista) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/DeportistaView.fxml"));
-            ControllerVistaPaciente controller = new ControllerVistaPaciente(deportista);
+            ControllerDeportistaView controller = new ControllerDeportistaView(deportista);
             loader.setController(controller);
 
             Parent root = loader.load();

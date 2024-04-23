@@ -8,13 +8,12 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import users.Coach;
 import users.Deportista;
 
-public class ControllerVistaCoach {
+public class ControllerDeportistaView {
 	
 
-    public ControllerVistaCoach( Coach coach) {
+    public ControllerDeportistaView( Deportista paciente) {
 		super();
 		this.idPaciente = idPaciente;
 		this.visualizeBttn = visualizeBttn;

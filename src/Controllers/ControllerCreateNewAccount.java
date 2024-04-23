@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class ControllerNewAccount {
+public class ControllerCreateNewAccount {
 	@FXML
 	private TextField id;
 
