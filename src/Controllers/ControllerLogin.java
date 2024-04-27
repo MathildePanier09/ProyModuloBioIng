@@ -14,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
@@ -22,8 +24,7 @@ import users.Coach;
 import users.Deportista;
 
 public class ControllerLogin implements Initializable{
-	
-
+    
     @FXML
     private TextField id;
 
@@ -32,11 +33,19 @@ public class ControllerLogin implements Initializable{
 
     @FXML
     private Button entrarBttn;
+
     private static final String URL = "jdbc:mariadb://localhost:3306/ProyModuloBioIng";
     private static final String USER = "root";
     private static final String PASS = "";
-
-
+    
+    @FXML
+    public void writeId(ActionEvent event) {
+        // Recuperar el ID ingresado por el usuario
+        String userId = id.getText();
+        
+        // Aquí puedes realizar la lógica necesaria con el ID, por ejemplo, escribirlo en la consola
+        System.out.println("ID ingresado: " + userId);
+    }
     @FXML
     void loginAction(ActionEvent event) {
         try {
@@ -72,6 +81,23 @@ public class ControllerLogin implements Initializable{
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    private void showErrorAlert(String message) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+   
+
+    @FXML
+    public void writePass(ActionEvent event) {
+        // Recuperar la contraseña ingresada por el usuario
+        String userPass = password.getText();
+        
+        // Aquí puedes realizar la lógica necesaria con la contraseña, por ejemplo, escribirla en la consola
+        System.out.println("Contraseña ingresada: " + userPass);
     }
 
     private Deportista authenticateDeportista(String userId, String userPassword) {
@@ -111,7 +137,6 @@ public class ControllerLogin implements Initializable{
         }
         return coach;
     }
-
 
     private void openCoachView(ActionEvent event, Coach coach) {
         try {
@@ -153,10 +178,9 @@ public class ControllerLogin implements Initializable{
         }
     }
 
-	@Override
-	public void initialize(java.net.URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
-	}
-    
+    @Override
+    public void initialize(java.net.URL location, ResourceBundle resources) {
+        // TODO Auto-generated method stub
+        
+    }
 }

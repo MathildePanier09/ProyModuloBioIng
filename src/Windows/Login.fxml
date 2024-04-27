@@ -16,7 +16,7 @@
       <GridPane alignment="CENTER" layoutX="30.0" layoutY="29.0" styleClass="body" stylesheets="@application.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-         </columnConstraints>
+         </columnConstraints>		
          <rowConstraints>
             <RowConstraints maxHeight="346.3333740234375" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
          </rowConstraints>
