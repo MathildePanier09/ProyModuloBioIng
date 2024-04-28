@@ -24,6 +24,7 @@ public class ControllerWelcome {
 	private Button newAccountBttn;
 
 	@FXML
+	// FUNCIONAL
 	void createNewAccount(ActionEvent event) {
 		try {
 			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/CreateNewAccount.fxml"));

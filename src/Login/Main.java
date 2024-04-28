@@ -17,9 +17,9 @@ public class Main extends Application {
 
 	public void start(Stage primaryStage) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/CreateNewAccount.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/welcome.fxml"));
 
-			ControllerCreateNewAccount controllerWelcome = new ControllerCreateNewAccount();
+			ControllerWelcome controllerWelcome = new ControllerWelcome();
 
 			loader.setController(controllerWelcome);
 			Parent root = loader.load();

@@ -42,7 +42,7 @@
                                           <Font name="Nirmala UI" size="16.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="idTxtField" onAction="#writeId" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su ID" styleClass="label2" stylesheets="@application.css">
+                                    <TextField fx:id="idTxtField" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su ID" styleClass="label2" stylesheets="@application.css">
                                        <opaqueInsets>
                                           <Insets left="60.0" right="60.0" />
                                        </opaqueInsets>
@@ -61,7 +61,7 @@
                                                 <Font name="Nirmala UI" size="16.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="passTxtField" onAction="#writePass" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su contraseña" styleClass="label2" stylesheets="@application.css">
+                                          <TextField fx:id="passTxtField" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su contraseña" styleClass="label2" stylesheets="@application.css">
                                              <opaqueInsets>
                                                 <Insets left="60.0" right="60.0" />
                                              </opaqueInsets>

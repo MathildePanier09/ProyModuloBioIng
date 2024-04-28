@@ -42,7 +42,7 @@
                                             <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                                      <Label fx:id="deportistaIdLbl" prefHeight="25.0" prefWidth="160.0" text="ID Deportista:" textFill="#a04ba3">
+                                                      <Label fx:id="deportistaIdLbl" prefHeight="29.0" prefWidth="417.0" text="ID Deportista:" textFill="#a04ba3">
                                                           <font>
                                                               <javafx.scene.text.Font name="Nirmala UI" size="24.0" />
                                                           </font>

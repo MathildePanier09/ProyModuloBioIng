@@ -42,7 +42,7 @@
                                             <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                                      <Label fx:id="coachIdLbl" prefHeight="25.0" prefWidth="160.0" text="ID Coach:" textFill="#a04ba3">
+                                                      <Label fx:id="coachIdLbl" prefHeight="29.0" prefWidth="419.0" text="ID Coach:" textFill="#a04ba3">
                                                           <font>
                                                               <javafx.scene.text.Font name="Nirmala UI" size="24.0" />
                                                           </font>
@@ -65,7 +65,7 @@
                                                 </Label>
                                             </children>
                                         </VBox>
-                              <Button fx:id="gestionBttn" mnemonicParsing="false" onAction="#visualizeAction" styleClass="boton2" stylesheets="@application.css" text="Gestión Deportistas" textFill="#a04ba3">
+                              <Button fx:id="gestionBttn" mnemonicParsing="false" onAction="#gestionarAction" styleClass="boton2" stylesheets="@application.css" text="Gestión Deportistas" textFill="#a04ba3">
                                  <font>
                                     <Font size="18.0" />
                                  </font>

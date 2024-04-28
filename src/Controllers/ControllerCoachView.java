@@ -4,7 +4,10 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -13,39 +16,79 @@ import users.Deportista;
 
 public class ControllerCoachView {
 	
+Coach coach;
 
-    public ControllerCoachView( Coach coach) {
-		super();
-		this.idPaciente = idPaciente;
-		this.visualizeBttn = visualizeBttn;
-		this.salirBttn = salirBttn;
-		this.paciente = paciente;
+	public ControllerCoachView(Coach coach) {
+		this.coach=coach;
+		
+	}
+	@FXML
+	private Label coachViewLbl;
+
+	@FXML
+	private Label coachIdLbl;
+
+	@FXML
+	private Label deportistaIdLabel;
+
+	@FXML
+	private Button gestionBttn;
+
+	@FXML
+	private Button visualizeBttn;
+
+	@FXML
+	private Button salirBttn;
+
+	@FXML
+	void salirAction(ActionEvent event) {
+		try {
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/welcome.fxml"));
+	        ControllerWelcome controllerWelcome = new ControllerWelcome();
+	        loader.setController(controllerWelcome);
+	        Parent root = loader.load();
+
+	        // Obtener la escena actual y cerrar la ventana actual
+	        Stage stage = (Stage) salirBttn.getScene().getWindow();
+	        stage.close();
+
+	        // Abrir la nueva ventana
+	        Stage primaryStage = new Stage();
+	        primaryStage.setScene(new Scene(root));
+	        primaryStage.show();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
 	}
 
 	@FXML
-    private Label idPaciente;
+	void visualizeAction(ActionEvent event) {
 
-    @FXML
-    private Button visualizeBttn;
+	}
+	void gestionarAction(ActionEvent event) {
+		try {
+			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/GestionDeportistas.fxml"));
+			ControllerGestionDeportistas controlLogin = new ControllerGestionDeportistas();
 
-    @FXML
-    private Button salirBttn;
-    
-    private Deportista paciente;
+			Stage actualStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
 
-    @FXML
-    void salirAction(ActionEvent event) {
-    	Stage previousStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
-		previousStage.close();
+			loaderLogin.setController(controlLogin);
+			Parent rootLogin = loaderLogin.load();
+
+			Stage stage = new Stage();
+			stage.setScene(new Scene(rootLogin));
+			stage.show();
+
+			actualStage.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	@FXML
+    void initialize() {
+    	
+		String idCoach = coach.getId();
+		String nombre = coach.getName();
+		 coachIdLbl.setText("Hola Coach " + nombre + " (C"+idCoach+")");
     }
-
-    @FXML
-    void visualizeAction(ActionEvent event) {
-
-    }
-    public void initialize(URL arg0, ResourceBundle arg1) {
-		idPaciente.setText(paciente.getId());
-		
 }
-}
-
