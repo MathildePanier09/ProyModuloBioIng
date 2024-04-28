@@ -1,7 +1,8 @@
 package Controllers;
 
-import java.awt.event.ActionEvent;
 
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -48,7 +49,7 @@ public class ControllerWelcome {
 	void login(ActionEvent event) {
 		try {
 			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/Login.fxml"));
-			ControllerCreateNewAccount controlLogin = new ControllerCreateNewAccount();
+			ControllerLogin controlLogin = new ControllerLogin();
 
 			Stage actualStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
 

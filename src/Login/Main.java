@@ -2,7 +2,9 @@ package Login;
 
 import java.util.Vector;
 
+import Controllers.ControllerCreateNewAccount;
 import Controllers.ControllerLogin;
+import Controllers.ControllerWelcome;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -15,9 +17,9 @@ public class Main extends Application {
 
 	public void start(Stage primaryStage) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/login.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/CreateNewAccount.fxml"));
 
-			ControllerLogin controllerWelcome = new ControllerLogin();
+			ControllerCreateNewAccount controllerWelcome = new ControllerCreateNewAccount();
 
 			loader.setController(controllerWelcome);
 			Parent root = loader.load();

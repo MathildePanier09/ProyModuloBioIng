@@ -17,7 +17,7 @@ public class Create {
     }
 
     //--------------------CREAR TABLAS DE USUARIOS Y RELACION ---------------------
-    private void createTablesIfNotExist() {
+    public static void createTablesIfNotExist() {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
             // Crear tabla COACH si no existe
             String createCoachTableSql = "CREATE TABLE IF NOT EXISTS COACH (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), pass VARCHAR(255))";
@@ -41,7 +41,7 @@ public class Create {
         }
     }
 
-    public int createCoach(String name, String password) {
+    public static int createCoach(String name, String password) {
         int newCoachId = 0;
         try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
             String insertSql = "INSERT INTO COACH (name, pass) VALUES (?, ?)";
@@ -64,7 +64,7 @@ public class Create {
         return newCoachId;
     }
 
-    public int createDeportista(String name, String password) {
+    public static int createDeportista(String name, String password) {
         int newDeportistaId = 0;
         try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
             String insertSql = "INSERT INTO DEPORTISTA (name, pass) VALUES (?, ?)";
