@@ -27,7 +27,7 @@
                <children>
                   <VBox alignment="TOP_CENTER" spacing="20.0">
                      <children>
-                        <Label fx:id="createNewAcountLbl" prefHeight="46.0" prefWidth="292.0" text="Crear Nueva Cuenta" textFill="#a04ba3">
+                        <Label fx:id="createNewAcountLbl" prefHeight="46.0" prefWidth="292.0" text="Crear Nueva Cuenta" textFill="#a04ba3" underline="true">
                            <font>
                               <Font name="Nirmala UI Bold" size="31.0" />
                            </font>
@@ -39,12 +39,12 @@
                                     <VBox>
                                        <children>
                                           <Label fx:id="nameLbl" prefHeight="17.0" prefWidth="82.0" text="Nombre" textFill="#a04ba3">
-                                             <VBox.margin>
-                                                <Insets left="70.0" />
-                                             </VBox.margin>
                                              <font>
                                                 <Font name="Nirmala UI" size="16.0" />
                                              </font>
+                                             <VBox.margin>
+                                                <Insets left="70.0" />
+                                             </VBox.margin>
                                           </Label>
                                           <TextField fx:id="nameTxtField" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su nombre" styleClass="label2" stylesheets="@application.css">
                                              <opaqueInsets>
@@ -58,13 +58,13 @@
                                     </VBox>
                                     <VBox>
                                        <children>
-                                          <Label fx:id="passLbl" prefHeight="17.0" prefWidth="82.0" text="Contraseña" textFill="#a04ba3">
-                                             <VBox.margin>
-                                                <Insets left="70.0" />
-                                             </VBox.margin>
+                                          <Label fx:id="passLbl" prefHeight="25.0" prefWidth="94.0" text="Contraseña" textFill="#a04ba3">
                                              <font>
                                                 <Font name="Nirmala UI" size="16.0" />
                                              </font>
+                                             <VBox.margin>
+                                                <Insets left="70.0" />
+                                             </VBox.margin>
                                           </Label>
                                           <TextField fx:id="passTxtField" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su contraseña" styleClass="label2" stylesheets="@application.css">
                                              <opaqueInsets>
@@ -78,25 +78,31 @@
                                     </VBox>
                                  </children>
                               </VBox>
-                              <HBox>
+                              <HBox alignment="TOP_CENTER">
                                  <children>
                                     <CheckBox fx:id="deportistaChosen" mnemonicParsing="false" styleClass="boton1" stylesheets="@application.css" text="Soy un deportista" textFill="#a04ba3">
-                                       <HBox.margin>
-                                          <Insets bottom="50.0" left="125.0" />
-                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold Italic" size="12.0" />
+                                       </font>
                                     </CheckBox>
                                     <CheckBox fx:id="coachChosen" mnemonicParsing="false" styleClass="boton1" stylesheets="@application.css" text="Soy un coach " textFill="#a04ba3">
                                        <HBox.margin>
                                           <Insets bottom="50.0" left="125.0" />
                                        </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold Italic" size="12.0" />
+                                       </font>
                                     </CheckBox>
                                  </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
                               </HBox>
                               <HBox>
                                  <children>
-                                    <Label fx:id="nuevoIdLbl" prefHeight="20.0" prefWidth="114.0" text="Tu nuevo id es : " textFill="#a04ba3">
+                                    <Label fx:id="nuevoIdLbl" prefHeight="25.0" prefWidth="212.0" text="Tu nuevo id es : " textFill="#a04ba3">
                                        <font>
-                                          <Font name="Nirmala UI" size="16.0" />
+                                          <Font name="Nirmala UI Bold" size="16.0" />
                                        </font>
                                     </Label>
                                     <Label fx:id="nuevoId" text="Label" textFill="#a04ba3" />
@@ -105,10 +111,15 @@
                                     <Insets left="150.0" />
                                  </VBox.margin>
                               </HBox>
-                              <Button fx:id="signUpBttn" mnemonicParsing="false" onAction="#signUp" styleClass="boton8" stylesheets="@application.css" text="Sign Up">
+                              <HBox alignment="TOP_CENTER" spacing="30.0">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
-                                 </VBox.margin></Button>
+                                 </VBox.margin>
+                                 <children>
+                                    <Button fx:id="signUpBttn" mnemonicParsing="false" onAction="#signUp" styleClass="boton8" stylesheets="@application.css" text="Sign Up" />
+                                    <Button fx:id="salirBttn" mnemonicParsing="false" onAction="#delete" styleClass="boton8" stylesheets="@application.css" text="Salir" />
+                                 </children>
+                              </HBox>
                            </children>
                         </VBox>
                      </children>

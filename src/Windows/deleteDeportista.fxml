@@ -27,7 +27,7 @@
                <children>
                   <VBox alignment="TOP_CENTER" spacing="20.0">
                      <children>
-                        <Label fx:id="createNewAcountLbl" prefHeight="46.0" prefWidth="292.0" text="Eliminar un deportista" textFill="#a04ba3">
+                        <Label fx:id="createNewAcountLbl" prefHeight="46.0" prefWidth="334.0" text="Eliminar un deportista" textFill="#a04ba3" underline="true">
                            <font>
                               <Font name="Nirmala UI Bold" size="31.0" />
                            </font>
@@ -58,33 +58,36 @@
                                     </VBox>
                                     <VBox>
                                        <children>
-                                          <Label fx:id="questionLbl" prefHeight="20.0" prefWidth="147.0" text="Estas seguro ? " textFill="#a04ba3">
+                                          <Label fx:id="questionLbl" prefHeight="20.0" prefWidth="147.0" text="¿Estás seguro? " textFill="#a04ba3">
                                              <VBox.margin>
                                                 <Insets left="70.0" />
                                              </VBox.margin>
                                              <font>
-                                                <Font name="Nirmala UI" size="16.0" />
+                                                <Font name="Nirmala UI Bold" size="16.0" />
                                              </font>
                                           </Label>
                                        </children>
                                     </VBox>
-                                    <CheckBox fx:id="sureLabel" mnemonicParsing="false" prefHeight="18.0" prefWidth="130.0" text="Estoy seguro" textFill="#a04ba3">
+                                    <HBox alignment="TOP_CENTER">
                                        <VBox.margin>
                                           <Insets left="60.0" />
                                        </VBox.margin>
-                                    </CheckBox>
+                                       <children>
+                                          <CheckBox fx:id="sureLabel" mnemonicParsing="false" prefHeight="18.0" prefWidth="130.0" text="Estoy seguro" textFill="#a04ba3">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font>
+                                          </CheckBox>
+                                       </children>
+                                    </HBox>
                                  </children>
                               </VBox>
-                              <HBox />
-                              <HBox>
-                                 <VBox.margin>
-                                    <Insets left="150.0" />
-                                 </VBox.margin>
+                              <HBox alignment="TOP_CENTER" spacing="30.0">
+                                 <children>
+                                    <Button fx:id="deleteBttn" mnemonicParsing="false" onAction="#delete" styleClass="boton8" stylesheets="@application.css" text="Eliminar " />
+                                    <Button fx:id="salirBttn" mnemonicParsing="false" onAction="#delete" styleClass="boton8" stylesheets="@application.css" text="Salir" />
+                                 </children>
                               </HBox>
-                              <Button fx:id="deleteBttn" mnemonicParsing="false" onAction="#delete" styleClass="boton8" stylesheets="@application.css" text="Eliminar ">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin></Button>
                            </children>
                         </VBox>
                      </children>

@@ -25,7 +25,7 @@
                     <children>
                         <VBox alignment="TOP_CENTER" spacing="20.0">
                             <children>
-                                <Label fx:id="deportistaViewLbl" prefHeight="46.0" prefWidth="292.0" text="Deportista View" textFill="#a04ba3">
+                                <Label fx:id="deportistaViewLbl" prefHeight="46.0" prefWidth="292.0" text="Deportista View" textFill="#a04ba3" underline="true">
                                     <font>
                                         <javafx.scene.text.Font name="Nirmala UI Bold" size="31.0" />
                                     </font>
@@ -42,9 +42,9 @@
                                             <children>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                                      <Label fx:id="deportistaIdLbl" prefHeight="29.0" prefWidth="417.0" text="ID Deportista:" textFill="#a04ba3">
+                                                      <Label fx:id="deportistaIdLbl" prefHeight="35.0" prefWidth="516.0" text="ID Deportista:" textFill="#a04ba3">
                                                           <font>
-                                                              <javafx.scene.text.Font name="Nirmala UI" size="24.0" />
+                                                              <javafx.scene.text.Font name="Nirmala UI Bold" size="24.0" />
                                                           </font>
                                              <HBox.margin>
                                                 <Insets left="70.0" />
@@ -65,7 +65,7 @@
                                                 </Label>
                                             </children>
                                         </VBox>
-                              <Button fx:id="visualizeBttn" mnemonicParsing="false" onAction="#visualizeAction" styleClass="boton2" stylesheets="@application.css" text="Visualizar Métricas" textFill="#a04ba3">
+                              <Button fx:id="visualizeBttn" mnemonicParsing="false" onAction="#visualizeAction" styleClass="boton8" stylesheets="@application.css" text="Visualizar Métricas" textFill="#a04ba3">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -73,7 +73,7 @@
                                     <Insets top="20.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="salirBttn" mnemonicParsing="false" onAction="#salirAction" styleClass="boton2" stylesheets="@application.css" text="salir " textFill="#a04ba3">
+                              <Button fx:id="salirBttn" mnemonicParsing="false" onAction="#salirAction" styleClass="boton8" stylesheets="@application.css" text="salir " textFill="#a04ba3">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
