@@ -64,15 +64,19 @@ public class Delete {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        Delete deleter = new Delete();
-
-        // Ejemplo de eliminación de un coach y un deportista
-       // deleter.deleteCoach(6);
-       // deleter.deleteDeportista(6);
-
-        // Ejemplo de eliminación de un deportista de un coach
-        deleter.deleteDeportistaFromCoach(7, 7);
+ 
+    public void deleteSensorFromDeportista(int sensorId, int deportistaId) {
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
+            String deleteSql = "DELETE FROM SENSOR_DEP WHERE sensor_id = ? AND deportista_id = ?";
+            try (PreparedStatement pstmt = conn.prepareStatement(deleteSql)) {
+                pstmt.setInt(1, sensorId);
+                pstmt.setInt(2, deportistaId);
+                pstmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
+    
+    
 }
