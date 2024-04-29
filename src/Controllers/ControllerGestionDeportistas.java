@@ -7,29 +7,32 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import users.Coach;
 
-public class ControllerGestionDeportistas {
-	
 
+public class ControllerGestionDeportistas {
+
+	Coach coach;
 	public ControllerGestionDeportistas(Coach coach) {
 		//super();
 		this.coach = coach;
 	}
+	@FXML
+	private Label gestionDeportistasLbl;
 
 	@FXML
-	private Button createBttn;
+	private Button createDeportistaBttn;
 
 	@FXML
-	private Button borrarBttn;
+	private Button borrarDeportistaBttn;
 
 	@FXML
 	private Button salirBttn;
-	Coach coach;
 
 	@FXML
-	void borrar(ActionEvent event) {
+	void borrarDeportista(ActionEvent event) {
 		try {
 			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/deleteDeportista.fxml"));
 			ControllerDeleteDep controlLogin = new ControllerDeleteDep(coach);
@@ -50,7 +53,7 @@ public class ControllerGestionDeportistas {
 	}
 
 	@FXML
-	void create(ActionEvent event) {
+	void createDeportista(ActionEvent event) {
 		try {
 			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/CreateNewAccountDEPORTISTA.fxml"));
 			ControllerCreateNewAccountDEPORTISTA controlLogin = new ControllerCreateNewAccountDEPORTISTA(coach);
@@ -69,14 +72,15 @@ public class ControllerGestionDeportistas {
 			e.printStackTrace();
 		}
 	}
-
+	@FXML
 	void salir(ActionEvent event) {
-	    try {
-	        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	        stage.close();
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+		try {
+			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			stage.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }
