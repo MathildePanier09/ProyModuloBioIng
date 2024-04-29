@@ -77,5 +77,28 @@ public class Login {
     }
 
     public static void main(String[] args) {
+    	 // Crear una instancia de la clase Login
+        Login login = new Login();
+
+        // Probar el login de un deportista
+        Deportista deportista = login.loginDeportista(1, "password_de_deportista");
+        if (deportista != null) {
+            System.out.println("Deportista autenticado: " + deportista.getName());
+        } else {
+            System.out.println("Credenciales de deportista incorrectas.");
+        }
+
+        // Probar el login de un coach
+        Coach coach = login.loginCoach(1, "password_de_coach");
+        if (coach != null) {
+            System.out.println("Coach autenticado: " + coach.getName());
+            System.out.println("Pacientes del coach:");
+            for (Deportista paciente : coach.getPacientes()) {
+                System.out.println("- " + paciente.getName());
+            }
+        } else {
+            System.out.println("Credenciales de coach incorrectas.");
+        }
     }
-}
+    }
+
