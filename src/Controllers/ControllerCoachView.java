@@ -15,13 +15,13 @@ import users.Coach;
 import users.Deportista;
 
 public class ControllerCoachView {
-	
-Coach coach;
+
+	Coach coach;
 
 	public ControllerCoachView(Coach coach) {
 		this.coach=coach;
-		
 	}
+
 	@FXML
 	private Label coachViewLbl;
 
@@ -41,34 +41,10 @@ Coach coach;
 	private Button salirBttn;
 
 	@FXML
-	void salirAction(ActionEvent event) {
-		try {
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/welcome.fxml"));
-	        ControllerWelcome controllerWelcome = new ControllerWelcome();
-	        loader.setController(controllerWelcome);
-	        Parent root = loader.load();
-
-	        // Obtener la escena actual y cerrar la ventana actual
-	        Stage stage = (Stage) salirBttn.getScene().getWindow();
-	        stage.close();
-
-	        // Abrir la nueva ventana
-	        Stage primaryStage = new Stage();
-	        primaryStage.setScene(new Scene(root));
-	        primaryStage.show();
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-	}
-
-	@FXML
-	void visualizeAction(ActionEvent event) {
-
-	}
 	void gestionarAction(ActionEvent event) {
 		try {
 			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/GestionDeportistas.fxml"));
-			ControllerGestionDeportistas controlLogin = new ControllerGestionDeportistas();
+			ControllerGestionDeportistas controlLogin = new ControllerGestionDeportistas(coach);
 
 			Stage actualStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
 
@@ -84,11 +60,55 @@ Coach coach;
 			e.printStackTrace();
 		}
 	}
+
 	@FXML
-    void initialize() {
-    	
+	void salirAction(ActionEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/welcome.fxml"));
+			ControllerWelcome controllerWelcome = new ControllerWelcome();
+			loader.setController(controllerWelcome);
+			Parent root = loader.load();
+
+			// Obtener la escena actual y cerrar la ventana actual
+			Stage stage = (Stage) salirBttn.getScene().getWindow();
+			stage.close();
+
+			// Abrir la nueva ventana
+			Stage primaryStage = new Stage();
+			primaryStage.setScene(new Scene(root));
+			primaryStage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@FXML
+	void visualizeAction(ActionEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/Metricas.fxml"));
+			ControllerMetricas controllerWelcome = new ControllerMetricas();
+			loader.setController(controllerWelcome);
+			Parent root = loader.load();
+
+			// Obtener la escena actual y cerrar la ventana actual
+			Stage stage = (Stage) salirBttn.getScene().getWindow();
+			stage.close();
+
+			// Abrir la nueva ventana
+			Stage primaryStage = new Stage();
+			primaryStage.setScene(new Scene(root));
+			primaryStage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	@FXML
+	void initialize() {
+
 		String idCoach = coach.getId();
 		String nombre = coach.getName();
-		 coachIdLbl.setText("Hola Coach " + nombre + " (C"+idCoach+")");
-    }
+		coachIdLbl.setText("Hola Coach " + nombre + " (C"+idCoach+")");
+	}
+
 }
+

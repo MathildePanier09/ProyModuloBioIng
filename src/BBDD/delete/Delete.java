@@ -31,7 +31,7 @@ public class Delete {
     }
 
 
-    public void deleteDeportista(int deportistaId) {
+    public static void deleteDeportista(int deportistaId) {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
             // Eliminar registros relacionados en COACH_DEPORTISTA
             String deleteCoachDeportistaSql = "DELETE FROM COACH_DEPORTISTA WHERE deportista_id = ?";
