@@ -2,11 +2,13 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -25,35 +27,18 @@
                <children>
                   <VBox alignment="TOP_CENTER" spacing="20.0">
                      <children>
-                        <Label prefHeight="46.0" prefWidth="91.0" text="LOGIN" textFill="#a04ba3">
+                        <Label fx:id="createNewAcountLbl" prefHeight="46.0" prefWidth="292.0" text="Eliminar un deportista" textFill="#a04ba3">
                            <font>
                               <Font name="Nirmala UI Bold" size="31.0" />
                            </font>
                         </Label>
                         <VBox alignment="CENTER" spacing="20.0">
                            <children>
-                              <VBox spacing="10.0">
+                              <VBox prefHeight="271.0" prefWidth="600.0" spacing="10.0">
                                  <children>
-                                    <Label prefHeight="17.0" prefWidth="82.0" text="Id" textFill="#a04ba3">
-                                       <VBox.margin>
-                                          <Insets left="70.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font name="Nirmala UI" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="id" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su Id, por favor:" styleClass="label2" stylesheets="@application.css">
-                                       <opaqueInsets>
-                                          <Insets left="60.0" right="60.0" />
-                                       </opaqueInsets>
-                                       <VBox.margin>
-                                          <Insets bottom="10.0" left="60.0" right="60.0" />
-                                       </VBox.margin>
-                                    </TextField>
-                                    <VBox />
                                     <VBox>
                                        <children>
-                                          <Label prefHeight="17.0" prefWidth="82.0" text="Contraseña" textFill="#a04ba3">
+                                          <Label fx:id="nameLbl" prefHeight="17.0" prefWidth="82.0" text="ID" textFill="#a04ba3">
                                              <VBox.margin>
                                                 <Insets left="70.0" />
                                              </VBox.margin>
@@ -61,19 +46,45 @@
                                                 <Font name="Nirmala UI" size="16.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="password" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su apellido, por favor:" styleClass="label2" stylesheets="@application.css">
+                                          <TextField fx:id="idDep" prefHeight="25.0" prefWidth="529.0" promptText="Introduce el id del deportista que quieres eleminar" styleClass="label2" stylesheets="@application.css">
                                              <opaqueInsets>
                                                 <Insets left="60.0" right="60.0" />
                                              </opaqueInsets>
                                              <VBox.margin>
-                                                <Insets bottom="15.0" left="60.0" right="60.0" />
+                                                <Insets bottom="10.0" left="60.0" right="60.0" />
                                              </VBox.margin>
                                           </TextField>
                                        </children>
                                     </VBox>
+                                    <VBox>
+                                       <children>
+                                          <Label fx:id="questionLbl" prefHeight="20.0" prefWidth="147.0" text="Estas seguro ? " textFill="#a04ba3">
+                                             <VBox.margin>
+                                                <Insets left="70.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Nirmala UI" size="16.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <CheckBox fx:id="sureLabel" mnemonicParsing="false" prefHeight="18.0" prefWidth="130.0" text="Estoy seguro" textFill="#a04ba3">
+                                       <VBox.margin>
+                                          <Insets left="60.0" />
+                                       </VBox.margin>
+                                    </CheckBox>
                                  </children>
                               </VBox>
-                              <Button fx:id="entrarBttn" mnemonicParsing="false" onAction="#loginAction" styleClass="boton8" stylesheets="@application.css" text="entrar" />
+                              <HBox />
+                              <HBox>
+                                 <VBox.margin>
+                                    <Insets left="150.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <Button fx:id="deleteBttn" mnemonicParsing="false" onAction="#delete" styleClass="boton8" stylesheets="@application.css" text="Eliminar ">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin></Button>
                            </children>
                         </VBox>
                      </children>

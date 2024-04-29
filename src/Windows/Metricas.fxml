@@ -2,8 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -25,7 +25,7 @@
                <children>
                   <VBox alignment="TOP_CENTER" spacing="20.0">
                      <children>
-                        <Label prefHeight="46.0" prefWidth="91.0" text="LOGIN" textFill="#a04ba3">
+                        <Label fx:id="metricasLbl" prefHeight="46.0" prefWidth="451.0" text="VISUALIZACIÓN DE MÉTRICAS" textFill="#a04ba3">
                            <font>
                               <Font name="Nirmala UI Bold" size="31.0" />
                            </font>
@@ -34,46 +34,43 @@
                            <children>
                               <VBox spacing="10.0">
                                  <children>
-                                    <Label prefHeight="17.0" prefWidth="82.0" text="Id" textFill="#a04ba3">
+                                    <Label fx:id="deportistaLbl" prefHeight="25.0" prefWidth="130.0" text="ID Deportista" textFill="#a04ba3">
                                        <VBox.margin>
                                           <Insets left="70.0" />
                                        </VBox.margin>
                                        <font>
-                                          <Font name="Nirmala UI" size="16.0" />
+                                          <Font name="Nirmala UI" size="18.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="id" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su Id, por favor:" styleClass="label2" stylesheets="@application.css">
-                                       <opaqueInsets>
-                                          <Insets left="60.0" right="60.0" />
-                                       </opaqueInsets>
+                                    <Label fx:id="deportistaIdLbl" prefHeight="21.0" prefWidth="466.0">
                                        <VBox.margin>
-                                          <Insets bottom="10.0" left="60.0" right="60.0" />
+                                          <Insets left="70.0" />
                                        </VBox.margin>
-                                    </TextField>
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
                                     <VBox />
                                     <VBox>
                                        <children>
-                                          <Label prefHeight="17.0" prefWidth="82.0" text="Contraseña" textFill="#a04ba3">
+                                          <Label fx:id="typeLbl" prefHeight="27.0" prefWidth="144.0" text="Tipo de Ejercicio" textFill="#a04ba3">
                                              <VBox.margin>
                                                 <Insets left="70.0" />
                                              </VBox.margin>
                                              <font>
-                                                <Font name="Nirmala UI" size="16.0" />
+                                                <Font name="Nirmala UI" size="18.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="password" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su apellido, por favor:" styleClass="label2" stylesheets="@application.css">
-                                             <opaqueInsets>
-                                                <Insets left="60.0" right="60.0" />
-                                             </opaqueInsets>
+                                          <ComboBox fx:id="typeCombo" onAction="#selectExercise" prefHeight="31.0" prefWidth="481.0">
                                              <VBox.margin>
-                                                <Insets bottom="15.0" left="60.0" right="60.0" />
+                                                <Insets bottom="60.0" left="72.0" top="10.0" />
                                              </VBox.margin>
-                                          </TextField>
+                                          </ComboBox>
                                        </children>
                                     </VBox>
                                  </children>
                               </VBox>
-                              <Button fx:id="entrarBttn" mnemonicParsing="false" onAction="#loginAction" styleClass="boton8" stylesheets="@application.css" text="entrar" />
+                              <Button fx:id="entrarBttn" mnemonicParsing="false" onAction="#loginAction" styleClass="boton8" stylesheets="@application.css" text="Entrar" />
                            </children>
                         </VBox>
                      </children>

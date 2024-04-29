@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="body" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <GridPane alignment="CENTER" styleClass="body" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="346.3333740234375" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <VBox alignment="TOP_CENTER">
+                    <children>
+                        <VBox alignment="TOP_CENTER" spacing="20.0">
+                            <children>
+                                <Label fx:id="welcomeLbl" prefHeight="46.0" prefWidth="292.0" text="¡BIENVENIDO!" textFill="#a04ba3">
+                                    <font>
+                                        <javafx.scene.text.Font name="Arial Bold" size="30.0" />
+                                    </font>
+                           <VBox.margin>
+                              <Insets left="75.0" top="40.0" />
+                           </VBox.margin>
+                                </Label>
+                                <VBox alignment="CENTER" spacing="20.0">
+                                    <children>
+                                        <Button fx:id="loginBttn" mnemonicParsing="false" onAction="#login" prefHeight="31.0" prefWidth="190.0" style="-fx-background-color: #a04ba3; -fx-text-fill: white;" styleClass="button" text="Login">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" top="60.0" />
+                                 </VBox.margin></Button>
+                                        <Button fx:id="newAccountBttn" mnemonicParsing="false" onAction="#createNewAccount" prefHeight="31.0" prefWidth="190.0" style="-fx-background-color: #a04ba3; -fx-text-fill: white;" styleClass="button" text="Crear Nueva Cuenta" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>
