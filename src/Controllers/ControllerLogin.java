@@ -15,25 +15,26 @@ import users.Coach;
 import users.Deportista;
 
 public class ControllerLogin {
+	  @FXML
+	    private Label loginLbl;
 
-    @FXML
-    private Label loginLbl;
+	    @FXML
+	    private Label idLbl;
 
-    @FXML
-    private Label idLbl;
+	    @FXML
+	    private TextField idTxtField;
 
-    @FXML
-    private TextField idTxtField;
+	    @FXML
+	    private Label passLbl;
 
-    @FXML
-    private Label passLbl;
+	    @FXML
+	    private TextField passTxtField;
 
-    @FXML
-    private TextField passTxtField;
+	    @FXML
+	    private Button entrarBttn1;
 
-    @FXML
-    private Button entrarBttn;
-
+	    @FXML
+	    private Button salirBttn;
     @FXML
     void loginAction(ActionEvent event) {
         String id = idTxtField.getText();

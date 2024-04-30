@@ -14,8 +14,7 @@ public class ControllerCreateNewAccountDEPORTISTA {
 	//	super();
 		this.coach = coach;
 	}
-
-	@FXML
+    @FXML
     private Label createNewAcountLbl;
 
     @FXML
@@ -38,6 +37,14 @@ public class ControllerCreateNewAccountDEPORTISTA {
 
     @FXML
     private Button signUpBttn;
+
+    @FXML
+    private Button salirBttn;
+    @FXML
+    void delete(ActionEvent event) {
+
+    }
+
     Coach coach;
 
     @FXML

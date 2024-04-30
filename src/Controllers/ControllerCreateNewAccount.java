@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 
 public class ControllerCreateNewAccount {
 
+
     @FXML
     private Label createNewAcountLbl;
 
@@ -32,13 +33,21 @@ public class ControllerCreateNewAccount {
     private CheckBox coachChosen;
 
     @FXML
-    private Button signUpBttn;
-    
-    @FXML
     private Label nuevoIdLbl;
 
     @FXML
     private Label nuevoId;
+
+    @FXML
+    private Button signUpBttn;
+
+    @FXML
+    private Button salirBttn;
+    @FXML
+    void delete(ActionEvent event) {
+
+    }
+
 
     @FXML
     void initialize() {
