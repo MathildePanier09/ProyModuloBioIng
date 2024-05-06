@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -14,79 +15,76 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-      <GridPane alignment="CENTER" layoutX="30.0" layoutY="29.0" styleClass="body" stylesheets="@application.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-         </columnConstraints>		
-         <rowConstraints>
-            <RowConstraints maxHeight="346.3333740234375" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <VBox alignment="TOP_CENTER" styleClass="body" stylesheets="@application.css">
-               <children>
-                  <VBox alignment="TOP_CENTER" spacing="20.0">
-                     <children>
-                        <Label fx:id="loginLbl" prefHeight="46.0" prefWidth="103.0" text="LOGIN" textFill="#a04ba3">
-                           <font>
-                              <Font name="Nirmala UI Bold" size="31.0" />
-                           </font>
-                        </Label>
-                        <VBox alignment="CENTER" spacing="20.0">
-                           <children>
-                              <VBox spacing="10.0">
-                                 <children>
-                                    <Label fx:id="idLbl" prefHeight="17.0" prefWidth="82.0" text="Id" textFill="#a04ba3">
-                                       <VBox.margin>
-                                          <Insets left="70.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font name="Nirmala UI" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="idTxtField" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su ID" styleClass="label2" stylesheets="@application.css">
-                                       <opaqueInsets>
-                                          <Insets left="60.0" right="60.0" />
-                                       </opaqueInsets>
-                                       <VBox.margin>
-                                          <Insets bottom="10.0" left="60.0" right="60.0" />
-                                       </VBox.margin>
-                                    </TextField>
-                                    <VBox />
-                                    <VBox>
-                                       <children>
-                                          <Label fx:id="passLbl" prefHeight="17.0" prefWidth="82.0" text="Contraseña" textFill="#a04ba3">
+        <GridPane alignment="CENTER" layoutX="30.0" layoutY="29.0" styleClass="body" stylesheets="@application.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="346.3333740234375" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <VBox alignment="TOP_CENTER" styleClass="body" stylesheets="@application.css">
+                    <children>
+                        <VBox alignment="TOP_CENTER" spacing="20.0">
+                            <children>
+                                <Label fx:id="loginLbl" prefHeight="46.0" prefWidth="103.0" text="LOGIN" textFill="#a04ba3">
+                                    <font>
+                                        <Font name="Nirmala UI Bold" size="31.0" />
+                                    </font>
+                                </Label>
+                                <VBox alignment="CENTER" spacing="20.0">
+                                    <children>
+                                        <VBox spacing="10.0">
+                                            <children>
+                                                <Label fx:id="idLbl" prefHeight="17.0" prefWidth="82.0" text="Id" textFill="#a04ba3"> <!-- Change textFill to black -->
+                                                    <VBox.margin>
+                                                        <Insets left="70.0" />
+                                                    </VBox.margin>
+                                                    <font>
+                                                        <Font name="Nirmala UI" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="idTxtField" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su ID" styleClass="label2" stylesheets="@application.css">
+                                                    <opaqueInsets>
+                                                        <Insets left="60.0" right="60.0" />
+                                                    </opaqueInsets>
+                                                    <VBox.margin>
+                                                        <Insets bottom="10.0" left="60.0" right="60.0" />
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <VBox />
+                                                <VBox>
+                                                    <children>
+                                                        <Label fx:id="passLbl" prefHeight="17.0" prefWidth="82.0" text="Contraseña" textFill="#a04ba3"> <!-- Change textFill to black -->
+                                                            <VBox.margin>
+                                                                <Insets left="70.0" />
+                                                            </VBox.margin>
+                                                            <font>
+                                                                <Font name="Nirmala UI" size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                          <PasswordField fx:id="passTxtField" prefHeight="27.0" prefWidth="537.0" promptText="Introduzca su contraseña" styleClass="label2" stylesheets="@application.css">
                                              <VBox.margin>
-                                                <Insets left="70.0" />
+                                                <Insets bottom="10.0" left="60.0" right="60.0" />
                                              </VBox.margin>
-                                             <font>
-                                                <Font name="Nirmala UI" size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="passTxtField" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su contraseña" styleClass="label2" stylesheets="@application.css">
-                                             <opaqueInsets>
-                                                <Insets left="60.0" right="60.0" />
-                                             </opaqueInsets>
-                                             <VBox.margin>
-                                                <Insets bottom="15.0" left="60.0" right="60.0" top="5.0" />
-                                             </VBox.margin>
-                                          </TextField>
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </VBox>
-                              <HBox alignment="TOP_CENTER" spacing="30.0">
-                                 <children>
-                                    <Button fx:id="entrarBttn1" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#loginAction" styleClass="boton8" stylesheets="@application.css" text="Entrar" />
-                                    <Button fx:id="salirBttn" mnemonicParsing="false" onAction="#loginAction" styleClass="boton8" stylesheets="@application.css" text="Salir" />
-                                 </children>
-                              </HBox>
-                           </children>
+                                          </PasswordField>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                        <HBox alignment="TOP_CENTER" spacing="30.0">
+                                            <children>
+                                                <Button fx:id="entrarBttn" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#loginAction" styleClass="boton8" stylesheets="@application.css" text="Entrar" />
+                                                <Button fx:id="salirBttn" mnemonicParsing="false" onAction="#salirAction" styleClass="boton8" stylesheets="@application.css" text="Salir" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
                         </VBox>
-                     </children>
-                  </VBox>
-               </children>
-            </VBox>
-         </children>
-      </GridPane>
+                    </children>
+                </VBox>
+            </children>
+        </GridPane>
     </children>
 </AnchorPane>

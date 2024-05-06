@@ -47,14 +47,11 @@ public class ControllerCreateNewAccount {
 
     @FXML
     private Button salirBttn;
-    @FXML
-    void delete(ActionEvent event) {
-
-    }
+   
     @FXML
 	void salirAction(ActionEvent event) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/welcome.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/Welcome.fxml"));
 			ControllerWelcome controllerWelcome = new ControllerWelcome();
 			loader.setController(controllerWelcome);
 			Parent root = loader.load();

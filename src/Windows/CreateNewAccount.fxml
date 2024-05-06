@@ -117,7 +117,7 @@
                                  </VBox.margin>
                                  <children>
                                     <Button fx:id="signUpBttn" mnemonicParsing="false" onAction="#signUp" styleClass="boton8" stylesheets="@application.css" text="Sign Up" />
-                                    <Button fx:id="salirBttn" mnemonicParsing="false" onAction="#delete" styleClass="boton8" stylesheets="@application.css" text="Salir" />
+                                    <Button fx:id="salirBttn" mnemonicParsing="false" onAction="#salirAction" styleClass="boton8" stylesheets="@application.css" text="Salir" />
                                  </children>
                               </HBox>
                            </children>

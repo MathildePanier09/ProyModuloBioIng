@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -15,52 +17,73 @@ import users.Coach;
 import users.Deportista;
 
 public class ControllerLogin {
-	  @FXML
-	    private Label loginLbl;
+	@FXML
+    private Label loginLbl;
 
-	    @FXML
-	    private Label idLbl;
+    @FXML
+    private Label idLbl;
 
-	    @FXML
-	    private TextField idTxtField;
+    @FXML
+    private TextField idTxtField;
 
-	    @FXML
-	    private Label passLbl;
+    @FXML
+    private Label passLbl;
 
-	    @FXML
-	    private TextField passTxtField;
+    @FXML
+    private TextField passTxtField;
 
-	    @FXML
-	    private Button entrarBttn1;
+    @FXML
+    private Button entrarBttn;
 
-	    @FXML
-	    private Button salirBttn;
-	    @FXML
-		void salirAction(ActionEvent event) {
-			try {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/welcome.fxml"));
-				ControllerWelcome controllerWelcome = new ControllerWelcome();
-				loader.setController(controllerWelcome);
-				Parent root = loader.load();
+    @FXML
+    private Button salirBttn;
 
-				// Obtener la escena actual y cerrar la ventana actual
-				Stage stage = (Stage) salirBttn.getScene().getWindow();
-				stage.close();
 
-				// Abrir la nueva ventana
-				Stage primaryStage = new Stage();
-				primaryStage.setScene(new Scene(root));
-				primaryStage.show();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+    @FXML
+	void salirAction(ActionEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/welcome.fxml"));
+			ControllerWelcome controllerWelcome = new ControllerWelcome();
+			loader.setController(controllerWelcome);
+			Parent root = loader.load();
+
+			// Obtener la escena actual y cerrar la ventana actual
+			Stage stage = (Stage) salirBttn.getScene().getWindow();
+			stage.close();
+
+			// Abrir la nueva ventana
+			Stage primaryStage = new Stage();
+			primaryStage.setScene(new Scene(root));
+			primaryStage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+	}
+
+    
+
     @FXML
     void loginAction(ActionEvent event) {
         String id = idTxtField.getText();
         String pass = passTxtField.getText();
+     
+
+        if (!id.isEmpty() && !pass.isEmpty()) { // Verificar que las cadenas no estén vacías
+            char role = id.charAt(0); // Recupera el primer caracter del ID
+
+            // Resto del código aquí
+        } else {
+            // Mostrar un mensaje de error indicando que los campos son obligatorios
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error de inicio de sesión");
+            alert.setHeaderText(null);
+            alert.setContentText("Por favor, completa todos los campos.");
+
+            alert.showAndWait();
+        }
 
         char role = id.charAt(0); // Recupera el primer caracter del ID
+        
 
         Login login = new Login();
         if (role == 'D') { // Si el ID indica que es un deportista
@@ -114,5 +137,6 @@ public class ControllerLogin {
         } else {
             // Hacer algo si el ID no es válido
         }
+        
     }
 }
