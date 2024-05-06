@@ -75,12 +75,22 @@ public class ControllerGestionDeportistas {
 	@FXML
 	void salir(ActionEvent event) {
 		try {
-			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			stage.close();
+			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/Welcome.fxml"));
+			ControllerWelcome controlLogin = new ControllerWelcome();
+
+			Stage actualStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+
+			loaderLogin.setController(controlLogin);
+			Parent rootLogin = loaderLogin.load();
+
+			Stage stage = new Stage();
+			stage.setScene(new Scene(rootLogin));
+			stage.show();
+
+			actualStage.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }
