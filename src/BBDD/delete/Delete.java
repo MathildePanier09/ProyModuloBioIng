@@ -52,7 +52,7 @@ public class Delete {
     }
 
 
-    public void deleteDeportistaFromCoach(int coachId, int deportistaId) {
+    public static void deleteDeportistaFromCoach(int coachId, int deportistaId) {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
             String deleteSql = "DELETE FROM COACH_DEPORTISTA WHERE coach_id = ? AND deportista_id = ?";
             try (PreparedStatement pstmt = conn.prepareStatement(deleteSql)) {

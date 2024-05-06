@@ -1,4 +1,6 @@
 package Controllers;
+import java.io.IOException;
+
 import BBDD.delete.Delete;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -76,10 +78,22 @@ public class ControllerDeleteDep {
             }
         });
     }
+    private void loadCoachView() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CoachView.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) idDep.getScene().getWindow(); // idDep es el control que tienes en tu escena actual
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void delete(ActionEvent event) {
         int deportistaId = Integer.parseInt(idDep.getText());
         Delete.deleteDeportista(deportistaId);
+        loadCoachView(); // Después de eliminar, cargar la ventana CoachView
     }
 }

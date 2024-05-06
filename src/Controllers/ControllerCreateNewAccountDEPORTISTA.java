@@ -2,13 +2,9 @@ package Controllers;
 import BBDD.create.Create;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import users.Coach;
 
 public class ControllerCreateNewAccountDEPORTISTA {
@@ -50,26 +46,7 @@ public class ControllerCreateNewAccountDEPORTISTA {
     }
 
     Coach coach;
-    @FXML
-	void salirAction(ActionEvent event) {
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/welcome.fxml"));
-			ControllerWelcome controllerWelcome = new ControllerWelcome();
-			loader.setController(controllerWelcome);
-			Parent root = loader.load();
 
-			// Obtener la escena actual y cerrar la ventana actual
-			Stage stage = (Stage) salirBttn.getScene().getWindow();
-			stage.close();
-
-			// Abrir la nueva ventana
-			Stage primaryStage = new Stage();
-			primaryStage.setScene(new Scene(root));
-			primaryStage.show();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
     @FXML
     void signUp(ActionEvent event) {
     	String name = nameTxtField.getText();
