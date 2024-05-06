@@ -43,6 +43,11 @@ public class ControllerDeleteDep {
     private Button deleteBttn;
 
     @FXML
+    private Button salirBttn;
+
+  
+
+    @FXML
     void initialize() {
         deleteBttn.setDisable(true); // El botón se inicializa deshabilitado
 

@@ -11,13 +11,19 @@ import users.Coach;
 public class ControllerCreateNewAccountDEPORTISTA {
 
 
+	private Coach coach;
+
+
+
 	public ControllerCreateNewAccountDEPORTISTA(Coach coach) {
 		//	super();
 		this.coach = coach;
 	}
 
+
 	@FXML
 	private Label createNewAcountLbl;
+
 
 	@FXML
 	private Label nameLbl;
@@ -37,9 +43,7 @@ public class ControllerCreateNewAccountDEPORTISTA {
 	@FXML
 	private Label nuevoId;
 
-	@FXML
-	private Button signUpBttn;
-	Coach coach;
+
 
 	@FXML
 	void signUp(ActionEvent event) {
@@ -57,16 +61,18 @@ public class ControllerCreateNewAccountDEPORTISTA {
 		nuevoId.setVisible(true);   
 
 	}
-	void delete(ActionEvent event) {
-	    int deportistaId = Integer.parseInt(nuevoId.getText());
-	    
-	    // Eliminar el deportista
-	    Delete.deleteDeportista(deportistaId);
-	    
-	    // Eliminar la relación entre el deportista y el coach
-	    int coachId = Integer.parseInt(coach.getId());
-	    Delete.deleteDeportistaFromCoach(coachId, deportistaId);
-	}
+	
+    @FXML
+    private Button signUpBttn;
+
+    @FXML
+    private Button salirBttn;
+    @FXML
+    void delete(ActionEvent event) {
+
+    }
+
+  
 
 
 }

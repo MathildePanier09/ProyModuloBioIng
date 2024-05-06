@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -73,7 +74,12 @@
                                     </VBox>
                                  </children>
                               </VBox>
-                              <Button fx:id="entrarBttn" mnemonicParsing="false" onAction="#loginAction" styleClass="boton8" stylesheets="@application.css" text="Entrar" />
+                              <HBox alignment="TOP_CENTER" spacing="30.0">
+                                 <children>
+                                    <Button fx:id="entrarBttn1" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#loginAction" styleClass="boton8" stylesheets="@application.css" text="Entrar" />
+                                    <Button fx:id="salirBttn" mnemonicParsing="false" onAction="#loginAction" styleClass="boton8" stylesheets="@application.css" text="Salir" />
+                                 </children>
+                              </HBox>
                            </children>
                         </VBox>
                      </children>

@@ -18,8 +18,7 @@ public class ControllerDeportistaView {
 		//super();
 		this.deportista = deportista;
 	}
-
-	@FXML
+    @FXML
     private Label deportistaViewLbl;
 
     @FXML
@@ -33,6 +32,11 @@ public class ControllerDeportistaView {
 
     @FXML
     private Button salirBttn;
+    @FXML
+    void delete(ActionEvent event) {
+
+    }
+
     @FXML
     void initialize() {
     	
