@@ -4,10 +4,14 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import users.Coach;
 
 public class ControllerDeleteDep {
@@ -40,7 +44,26 @@ public class ControllerDeleteDep {
     private Button salirBttn;
 
   
+    @FXML
+	void salirAction(ActionEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/welcome.fxml"));
+			ControllerWelcome controllerWelcome = new ControllerWelcome();
+			loader.setController(controllerWelcome);
+			Parent root = loader.load();
 
+			// Obtener la escena actual y cerrar la ventana actual
+			Stage stage = (Stage) salirBttn.getScene().getWindow();
+			stage.close();
+
+			// Abrir la nueva ventana
+			Stage primaryStage = new Stage();
+			primaryStage.setScene(new Scene(root));
+			primaryStage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
     @FXML
     void initialize() {
         deleteBttn.setDisable(true); // El botón se inicializa deshabilitado

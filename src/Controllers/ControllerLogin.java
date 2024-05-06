@@ -35,6 +35,26 @@ public class ControllerLogin {
 
 	    @FXML
 	    private Button salirBttn;
+	    @FXML
+		void salirAction(ActionEvent event) {
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/welcome.fxml"));
+				ControllerWelcome controllerWelcome = new ControllerWelcome();
+				loader.setController(controllerWelcome);
+				Parent root = loader.load();
+
+				// Obtener la escena actual y cerrar la ventana actual
+				Stage stage = (Stage) salirBttn.getScene().getWindow();
+				stage.close();
+
+				// Abrir la nueva ventana
+				Stage primaryStage = new Stage();
+				primaryStage.setScene(new Scene(root));
+				primaryStage.show();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
     @FXML
     void loginAction(ActionEvent event) {
         String id = idTxtField.getText();
