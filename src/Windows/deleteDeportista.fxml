@@ -38,7 +38,7 @@
                                  <children>
                                     <VBox>
                                        <children>
-                                          <Label fx:id="nameLbl" prefHeight="17.0" prefWidth="82.0" text="ID" textFill="#a04ba3">
+                                          <Label fx:id="nameLbl" prefHeight="20.0" prefWidth="400.0" text="Numero del ID : por ejemplo si es &quot;D3&quot;  entrar &quot;3&quot;" textFill="#a04ba3">
                                              <VBox.margin>
                                                 <Insets left="70.0" />
                                              </VBox.margin>
@@ -85,7 +85,7 @@
                               <HBox alignment="TOP_CENTER" spacing="30.0">
                                  <children>
                                     <Button fx:id="deleteBttn" mnemonicParsing="false" onAction="#delete" styleClass="boton8" stylesheets="@application.css" text="Eliminar " />
-                                    <Button fx:id="salirBttn" mnemonicParsing="false" onAction="#delete" styleClass="boton8" stylesheets="@application.css" text="Salir" />
+                                    <Button fx:id="salirBttn" mnemonicParsing="false" onAction="#salir" styleClass="boton8" stylesheets="@application.css" text="Salir" />
                                  </children>
                               </HBox>
                            </children>
