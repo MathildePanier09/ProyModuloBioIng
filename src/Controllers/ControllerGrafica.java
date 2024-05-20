@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
@@ -22,6 +23,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 
 public class ControllerGrafica implements Initializable{
 
@@ -43,7 +46,7 @@ public class ControllerGrafica implements Initializable{
     @FXML
     private TextField paramTxtFld;
     
-    public ControllerGrafica (String option, LocalDate fromDate, LocalDate toDate) {
+    public ControllerGrafica (String option) {
      /*   this.option = option;
         this.fromDate = fromDate;
         this.toDate = toDate;
@@ -126,8 +129,23 @@ public class ControllerGrafica implements Initializable{
 
     @FXML
     void backToUser(ActionEvent event) {
-    	 Stage previousStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-         previousStage.close();
+    	try {
+			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/Login.fxml"));
+			ControllerLogin controlLogin = new ControllerLogin();
+
+			Stage actualStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+
+			loaderLogin.setController(controlLogin);
+			Parent rootLogin = loaderLogin.load();
+
+			Stage stage = new Stage();
+			stage.setScene(new Scene(rootLogin));
+			stage.show();
+
+			actualStage.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     }
 	
 

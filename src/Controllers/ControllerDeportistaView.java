@@ -71,7 +71,7 @@ public class ControllerDeportistaView {
     void visualizeAction(ActionEvent event) {
     	try {
 			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/Metricas.fxml"));
-			ControllerCreateNewAccount controlLogin = new ControllerCreateNewAccount();
+			ControllerMetricas controlLogin = new ControllerMetricas(deportista);
 
 			Stage actualStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
 

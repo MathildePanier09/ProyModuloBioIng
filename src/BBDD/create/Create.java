@@ -6,6 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import users.Deportista;
 
 public class Create {
 	private static final String URL = "jdbc:mariadb://localhost:3306/ProyModuloBioIng";
@@ -75,6 +79,40 @@ public class Create {
 			e.printStackTrace();
 		}
 	}
+	 public static Deportista getDeportistaByName(String name) {
+	        Deportista deportista = null;
+	        try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
+	            String query = "SELECT id, name, pass FROM DEPORTISTA WHERE name = ?";
+	            try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+	                pstmt.setString(1, name);
+	                ResultSet rs = pstmt.executeQuery();
+	                if (rs.next()) {
+	                    String id = rs.getString("id");
+	                    String deportistaName = rs.getString("name");
+	                    String password = rs.getString("pass");
+	                    deportista = new Deportista(id, deportistaName, password);
+	                }
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	        return deportista;
+	    }
+	public static List<String> getAllDeportistas() {
+        List<String> deportistas = new ArrayList<>();
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
+            String querySql = "SELECT name FROM DEPORTISTA";
+            try (PreparedStatement pstmt = conn.prepareStatement(querySql);
+                 ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    deportistas.add(rs.getString("name"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return deportistas;
+    }
 
 	public static int createCoach(String name, String password) {
 		int newCoachId = 0;

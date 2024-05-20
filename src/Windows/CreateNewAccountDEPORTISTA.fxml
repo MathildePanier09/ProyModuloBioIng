@@ -26,7 +26,7 @@
                <children>
                   <VBox alignment="TOP_CENTER" spacing="20.0">
                      <children>
-                        <Label fx:id="createNewAcountLbl" prefHeight="46.0" prefWidth="292.0" text="Crear Nueva Cuenta" textFill="#a04ba3" underline="true">
+                        <Label fx:id="createNewAcountLbl" prefHeight="38.0" prefWidth="331.0" text="Crear Nuevo Deportista" textFill="#a04ba3" underline="true">
                            <font>
                               <Font name="Nirmala UI Bold" size="31.0" />
                            </font>
@@ -45,7 +45,7 @@
                                                 <Font name="Nirmala UI" size="16.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="nameTxtField" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su nombre" styleClass="label2" stylesheets="@application.css">
+                                          <TextField fx:id="nameTxtField" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca el nombre del deportista" styleClass="label2" stylesheets="@application.css">
                                              <opaqueInsets>
                                                 <Insets left="60.0" right="60.0" />
                                              </opaqueInsets>
@@ -65,7 +65,7 @@
                                                 <Insets left="70.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <TextField fx:id="passTxtField" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca su contraseña" styleClass="label2" stylesheets="@application.css">
+                                          <TextField fx:id="passTxtField" prefHeight="25.0" prefWidth="529.0" promptText="Introduzca una contraseña" styleClass="label2" stylesheets="@application.css">
                                              <opaqueInsets>
                                                 <Insets left="60.0" right="60.0" />
                                              </opaqueInsets>

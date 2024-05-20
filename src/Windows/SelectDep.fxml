@@ -34,14 +34,6 @@
                            <children>
                               <VBox spacing="10.0">
                                  <children>
-                                    <Label fx:id="deportistaLbl" prefHeight="25.0" prefWidth="130.0" text="ID Deportista" textFill="#a04ba3">
-                                       <VBox.margin>
-                                          <Insets left="70.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font name="Nirmala UI" size="18.0" />
-                                       </font>
-                                    </Label>
                                     <Label fx:id="deportistaIdLbl" prefHeight="21.0" prefWidth="466.0">
                                        <VBox.margin>
                                           <Insets left="70.0" />
@@ -53,7 +45,7 @@
                                     <VBox />
                                     <VBox>
                                        <children>
-                                          <Label fx:id="typeLbl" prefHeight="27.0" prefWidth="144.0" text="Tipo de Ejercicio" textFill="#a04ba3">
+                                          <Label fx:id="typeLbl" prefHeight="27.0" prefWidth="241.0" text="Selecciona el deportista" textFill="#a04ba3">
                                              <VBox.margin>
                                                 <Insets left="70.0" />
                                              </VBox.margin>
@@ -70,7 +62,7 @@
                                     </VBox>
                                  </children>
                               </VBox>
-                              <Button fx:id="entrarBttn" mnemonicParsing="false" onAction="#loginAction" styleClass="boton8" stylesheets="@application.css" text="Entrar" />
+                              <Button fx:id="visualizeBttn" mnemonicParsing="false" onAction="#visualizeAction" styleClass="boton8" stylesheets="@application.css" text="Visualizar" />
                            </children>
                         </VBox>
                      </children>

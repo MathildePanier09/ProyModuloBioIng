@@ -85,19 +85,19 @@ public class ControllerCoachView {
 	@FXML
 	void visualizeAction(ActionEvent event) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Windows/Metricas.fxml"));
-			ControllerMetricas controllerWelcome = new ControllerMetricas();
-			loader.setController(controllerWelcome);
-			Parent root = loader.load();
+			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/SelectDep.fxml"));
+			ControllerSelectDep controlLogin = new ControllerSelectDep();
 
-			// Obtener la escena actual y cerrar la ventana actual
-			Stage stage = (Stage) salirBttn.getScene().getWindow();
-			stage.close();
+			Stage actualStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
 
-			// Abrir la nueva ventana
-			Stage primaryStage = new Stage();
-			primaryStage.setScene(new Scene(root));
-			primaryStage.show();
+			loaderLogin.setController(controlLogin);
+			Parent rootLogin = loaderLogin.load();
+
+			Stage stage = new Stage();
+			stage.setScene(new Scene(rootLogin));
+			stage.show();
+
+			actualStage.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

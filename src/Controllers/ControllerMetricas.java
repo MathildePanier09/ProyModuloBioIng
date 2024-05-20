@@ -1,7 +1,6 @@
 package Controllers;
 
-import java.awt.event.ActionEvent;
-
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,54 +10,67 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import users.Deportista;
 
 public class ControllerMetricas {
 
+    @FXML
+    private Label metricasLbl;
 
-	@FXML
-	private Label metricasLbl;
+    @FXML
+    private Label deportistaLbl;
 
-	@FXML
-	private Label deportistaLbl;
+    @FXML
+    private Label typeLbl;
 
-	@FXML
-	private Label deportistaIdLbl;
+    @FXML
+    private ComboBox<String> typeCombo;
 
-	@FXML
-	private Label typeLbl;
+    @FXML
+    private Button entrarBttn;
+    
+    private Deportista deportista;
 
-	@FXML
-	private ComboBox<?> typeCombo;
+    public ControllerMetricas(Deportista deportista) {
+        super();
+        this.deportista = deportista;
+    }
 
-	@FXML
-	private Button entrarBttn;
+    @FXML
+    private void initialize() {
+        // Inicializar el ComboBox con las opciones
+        typeCombo.getItems().addAll("tipo1", "tipo2", "tipo3");
+        deportistaLbl.setText("Nombre : " + deportista.getName());
 
-	@FXML
-	void loginAction(ActionEvent event) {
-		try {
-			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/Graficas.fxml"));
-			ControllerCreateNewAccount controlLogin = new ControllerCreateNewAccount();
+        // Establecer el botón como invisible inicialmente
+        entrarBttn.setVisible(false);
 
-			Stage actualStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        // Añadir listener al ComboBox
+        typeCombo.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
+            // Hacer visible el botón solo si se ha seleccionado un elemento
+            entrarBttn.setVisible(newValue != null);
+        });
+    }
 
-			loaderLogin.setController(controlLogin);
-			Parent rootLogin = loaderLogin.load();
+    @FXML
+    void loginAction(ActionEvent event) {
+        String option = typeCombo.getSelectionModel().getSelectedItem();
+        try {
+            FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/Graficas.fxml"));
+            ControllerGrafica controlLogin = new ControllerGrafica(option);
 
-			Stage stage = new Stage();
-			stage.setScene(new Scene(rootLogin));
-			stage.show();
+            Stage actualStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-			actualStage.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+            loaderLogin.setController(controlLogin);
+            Parent rootLogin = loaderLogin.load();
 
-	@FXML
-	void selectExercise(ActionEvent event) {
+            Stage stage = new Stage();
+            stage.setScene(new Scene(rootLogin));
+            stage.show();
 
-	}
-
+            actualStage.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
-
-
