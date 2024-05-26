@@ -63,6 +63,7 @@
                                  </children>
                               </VBox>
                               <Button fx:id="asignarBttn" mnemonicParsing="false" onAction="#asignarAction" styleClass="boton8" stylesheets="@application.css" text="Asignar el deportista" />
+                              <Button fx:id="salirBttn" mnemonicParsing="false" onAction="#salirAction" styleClass="boton8" stylesheets="@application.css" text="Salir" />
                            </children>
                         </VBox>
                      </children>

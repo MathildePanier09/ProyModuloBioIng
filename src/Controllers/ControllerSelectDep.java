@@ -55,7 +55,8 @@ public class ControllerSelectDep implements Initializable {
     }
 
     private void loadDeportistas() {
-        List<String> deportistas = Create.getAllDeportistas();
+    	int coachId = Integer.parseInt(coach.getId());
+        List<String> deportistas = Create.getDeportistasByCoach(coachId);
         typeCombo.setItems(FXCollections.observableArrayList(deportistas));
     }
 

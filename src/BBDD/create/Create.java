@@ -250,6 +250,23 @@ public class Create {
 		return newCoachId;
 	}
 
+	public static List<String> getDeportistasByCoach(int coachId) {
+        List<String> deportistas = new ArrayList<>();
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
+            String querySql = "SELECT d.name FROM DEPORTISTA d INNER JOIN COACH_DEPORTISTA cd ON d.id = cd.deportista_id WHERE cd.coach_id = ?";
+            try (PreparedStatement pstmt = conn.prepareStatement(querySql)) {
+                pstmt.setInt(1, coachId);
+                try (ResultSet rs = pstmt.executeQuery()) {
+                    while (rs.next()) {
+                        deportistas.add(rs.getString("name"));
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return deportistas;
+    }
 
 	public static void main(String[] args) {
 		//Create creator = new Create();
