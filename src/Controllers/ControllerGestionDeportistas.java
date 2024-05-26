@@ -32,6 +32,8 @@ public class ControllerGestionDeportistas {
 	private Button salirBttn;
 
 	@FXML
+    private Button asignarseBttn;
+	@FXML
 	void borrarDeportista(ActionEvent event) {
 		try {
 			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/deleteDeportista.fxml"));
@@ -72,6 +74,26 @@ public class ControllerGestionDeportistas {
 			e.printStackTrace();
 		}
 	}
+	@FXML
+    void asignarseAction(ActionEvent event) {
+		try {
+			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/SelectDepParaAsignar.fxml"));
+			ControllerDepAsignar controlLogin = new ControllerDepAsignar(coach);
+
+			Stage actualStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+
+			loaderLogin.setController(controlLogin);
+			Parent rootLogin = loaderLogin.load();
+
+			Stage stage = new Stage();
+			stage.setScene(new Scene(rootLogin));
+			stage.show();
+
+			actualStage.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
 	@FXML
 	void salir(ActionEvent event) {
 		try {

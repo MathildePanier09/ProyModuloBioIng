@@ -62,6 +62,11 @@
                         </Button>
                      </children>
                   </HBox>
+                  <Button fx:id="asignarseBttn" mnemonicParsing="false" onAction="#asignarseAction" prefHeight="42.0" prefWidth="233.0" styleClass="boton8" stylesheets="@application.css" text="Asignarse un deportista" textFill="#a04ba3">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Button>
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">

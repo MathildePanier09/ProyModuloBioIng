@@ -86,7 +86,7 @@ public class ControllerCoachView {
 	void visualizeAction(ActionEvent event) {
 		try {
 			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/SelectDep.fxml"));
-			ControllerSelectDep controlLogin = new ControllerSelectDep();
+			ControllerSelectDep controlLogin = new ControllerSelectDep(coach);
 
 			Stage actualStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
 

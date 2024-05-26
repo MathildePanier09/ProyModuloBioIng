@@ -13,6 +13,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.collections.FXCollections;
+import users.Coach;
 import users.Deportista;
 
 import java.net.URL;
@@ -37,8 +38,18 @@ public class ControllerSelectDep implements Initializable {
     private Button visualizeBttn;
 
     private Deportista selectedDeportista;
+    @FXML
+    private Button salirBttn;
 
-    @Override
+    Coach coach; 
+    
+    
+    public ControllerSelectDep(Coach coach) {
+		super();
+		this.coach = coach;
+	}
+
+	@Override
     public void initialize(URL location, ResourceBundle resources) {
         loadDeportistas();
     }
@@ -72,7 +83,31 @@ public class ControllerSelectDep implements Initializable {
        
     }
 
+    
     public Deportista getSelectedDeportista() {
         return selectedDeportista;
     }
+    @FXML
+    void salirAction(ActionEvent event) {
+       try {
+			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/CoachView.fxml"));
+			ControllerCoachView controlLogin = new ControllerCoachView(coach);
+
+			Stage actualStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+
+			loaderLogin.setController(controlLogin);
+			Parent rootLogin = loaderLogin.load();
+
+			Stage stage = new Stage();
+			stage.setScene(new Scene(rootLogin));
+			stage.show();
+
+			actualStage.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+       
+    }
+
+    
 }

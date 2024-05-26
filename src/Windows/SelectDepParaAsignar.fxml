@@ -25,7 +25,7 @@
                <children>
                   <VBox alignment="TOP_CENTER" spacing="20.0">
                      <children>
-                        <Label fx:id="metricasLbl" prefHeight="46.0" prefWidth="451.0" text="VISUALIZACIÓN DE MÉTRICAS" textFill="#a04ba3">
+                        <Label fx:id="metricasLbl" prefHeight="46.0" prefWidth="451.0" text="ASIGNARSE UN DEPORTISTA" textFill="#a04ba3">
                            <font>
                               <Font name="Nirmala UI Bold" size="31.0" />
                            </font>
@@ -45,7 +45,7 @@
                                     <VBox />
                                     <VBox>
                                        <children>
-                                          <Label fx:id="typeLbl" prefHeight="27.0" prefWidth="241.0" text="Selecciona el deportista" textFill="#a04ba3">
+                                          <Label fx:id="typeLbl" prefHeight="27.0" prefWidth="382.0" text="Selecciona el deportista que quieres asignarte" textFill="#a04ba3">
                                              <VBox.margin>
                                                 <Insets left="70.0" />
                                              </VBox.margin>
@@ -62,8 +62,7 @@
                                     </VBox>
                                  </children>
                               </VBox>
-                              <Button fx:id="visualizeBttn" mnemonicParsing="false" onAction="#visualizeAction" styleClass="boton8" stylesheets="@application.css" text="Visualizar" />
-                              <Button fx:id="salirBttn" mnemonicParsing="false" onAction="#salirAction" styleClass="boton8" stylesheets="@application.css" text="Salir" />
+                              <Button fx:id="asignarBttn" mnemonicParsing="false" onAction="#asignarAction" styleClass="boton8" stylesheets="@application.css" text="Asignar el deportista" />
                            </children>
                         </VBox>
                      </children>
