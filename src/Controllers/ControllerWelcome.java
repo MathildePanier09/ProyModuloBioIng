@@ -1,5 +1,6 @@
 package Controllers;
 
+import BBDD.create.Create;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +25,7 @@ public class ControllerWelcome {
 	@FXML
 	// FUNCIONAL
 	void createNewAccount(ActionEvent event) {
+		Create.removeDuplicates();
 		try {
 			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/CreateNewAccount.fxml"));
 			ControllerCreateNewAccount controlLogin = new ControllerCreateNewAccount();

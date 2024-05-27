@@ -30,6 +30,7 @@ public class ControllerMetricas {
     private Button entrarBttn;
     
     private Deportista deportista;
+    
 
     public ControllerMetricas(Deportista deportista) {
         super();

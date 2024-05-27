@@ -18,6 +18,7 @@ public class Create {
 
 	public Create() {
 		createTablesIfNotExist();
+		removeDuplicates();
 	}
 
 	//--------------------CREAR TABLAS DE USUARIOS Y RELACION ---------------------
@@ -267,20 +268,28 @@ public class Create {
         }
         return deportistas;
     }
+	public static void removeDuplicates() {
+	    try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
+	        // Eliminar duplicados en COACH
+	        String deleteDuplicateCoachesSql = 
+	            "DELETE c1 FROM COACH c1 " +
+	            "INNER JOIN COACH c2 " +
+	            "WHERE c1.id > c2.id AND c1.name = c2.name";
+	        try (PreparedStatement pstmt = conn.prepareStatement(deleteDuplicateCoachesSql)) {
+	            pstmt.executeUpdate();
+	        }
 
-	public static void main(String[] args) {
-		//Create creator = new Create();
-
-		// Ejemplo de creación de un coach y un deportista
-		//int coachId = creator.createCoach("Coach2", "Pass");
-		//int deportistaId = creator.createDeportista("Deportista2", "Pass");
-
-		// Ejemplo de relación entre coach y deportista
-		//if (coachId != 0 && deportistaId != 0) {
-		//creator.relateCoachToDeportista(coachId, deportistaId);
-		//}
-		//signUpDeportista("NombreTest", "PasswordTest");
-		//signUpCoach("NombreTest", "PasswordTest");
-		relateCoachToDeportista(7, 7);
+	        // Eliminar duplicados en DEPORTISTA
+	        String deleteDuplicateDeportistasSql = 
+	            "DELETE d1 FROM DEPORTISTA d1 " +
+	            "INNER JOIN DEPORTISTA d2 " +
+	            "WHERE d1.id > d2.id AND d1.name = d2.name";
+	        try (PreparedStatement pstmt = conn.prepareStatement(deleteDuplicateDeportistasSql)) {
+	            pstmt.executeUpdate();
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
 	}
+
 }

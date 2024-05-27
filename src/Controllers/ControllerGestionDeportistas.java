@@ -97,8 +97,8 @@ public class ControllerGestionDeportistas {
 	@FXML
 	void salir(ActionEvent event) {
 		try {
-			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/Welcome.fxml"));
-			ControllerWelcome controlLogin = new ControllerWelcome();
+			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/CoachView.fxml"));
+			ControllerCoachView controlLogin = new ControllerCoachView(coach);
 
 			Stage actualStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
 

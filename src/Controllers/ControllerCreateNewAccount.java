@@ -80,6 +80,7 @@ public class ControllerCreateNewAccount {
      // Ocultar los labels nuevoIdLbl y nuevoId
         nuevoIdLbl.setVisible(false);
         nuevoId.setVisible(false);
+       
     }
 
     // TRUE si se ha elegido deportista FALSE si coach
@@ -113,6 +114,8 @@ public class ControllerCreateNewAccount {
         nuevoIdLbl.setVisible(true);
         nuevoId.setText(idNuevo); // Asignar el valor de idNuevo al label nuevoId
         nuevoId.setVisible(true);
+        signUpBttn.setDisable(true);
         }
+        signUpBttn.setDisable(true);
     }
 }

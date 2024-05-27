@@ -22,6 +22,7 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import users.Coach;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -46,15 +47,14 @@ public class ControllerGrafica implements Initializable{
     @FXML
     private TextField paramTxtFld;
     
-    public ControllerGrafica (String option) {
-     /*   this.option = option;
-        this.fromDate = fromDate;
-        this.toDate = toDate;
-        if (fromDate == null && toDate == null) realTime = true;
-        else realTime = false;*/
-    }
+    Coach coach;
+   
 
-    @Override
+    public ControllerGrafica(String option) {
+		super();
+		
+	}
+	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
     	 for (XYChart.Series<?, ?> series : upperChart.getData()) {
@@ -130,8 +130,8 @@ public class ControllerGrafica implements Initializable{
     @FXML
     void backToUser(ActionEvent event) {
     	try {
-			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/Login.fxml"));
-			ControllerLogin controlLogin = new ControllerLogin();
+			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/CoachView.fxml"));
+			ControllerCoachView controlLogin = new ControllerCoachView(coach);
 
 			Stage actualStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
 
@@ -146,8 +146,6 @@ public class ControllerGrafica implements Initializable{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-    }
-	
-
+	}
 }
 
