@@ -21,7 +21,7 @@
          <bottom>
             <VBox alignment="CENTER" prefHeight="63.0" prefWidth="640.0" styleClass="diagonal-gradient" stylesheets="@../../application.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="backBtn" onAction="#backToUser" prefHeight="27.0" prefWidth="169.0" styleClass="boton8" stylesheets="@../../application.css" text="Cerrar" textFill="#eb0f0f">
+                  <Button fx:id="backBtn" onAction="#backToUser" prefHeight="27.0" prefWidth="169.0" styleClass="boton2" stylesheets="@application.css" text="Cerrar" textFill="#c810eb">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -57,7 +57,7 @@
                         </LineChart>
                         <VBox alignment="CENTER" prefHeight="99.0" prefWidth="146.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <children>
-                              <Label fx:id="paramLbl" text="Dato" textFill="#a10c0c">
+                              <Label fx:id="paramLbl" text="Dato" textFill="#c810eb">
                                  <font>
                                     <Font name="System Bold" size="22.0" />
                                  </font>
