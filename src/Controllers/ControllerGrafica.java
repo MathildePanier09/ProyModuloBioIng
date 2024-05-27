@@ -1,9 +1,11 @@
 package Controllers;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 import javafx.animation.PauseTransition;
@@ -11,6 +13,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -23,17 +28,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import users.Coach;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 
-public class ControllerGrafica implements Initializable{
+public class ControllerGrafica implements Initializable {
 
     @FXML
     private Button backBtn;
 
     @FXML
-    private LineChart<?, ?> upperChart;
+    private LineChart<String, Number> upperChart;
 
     @FXML
     private CategoryAxis upperXAxis;
@@ -46,106 +48,92 @@ public class ControllerGrafica implements Initializable{
 
     @FXML
     private TextField paramTxtFld;
-    
-    Coach coach;
-   
+
+    private Coach coach;
 
     public ControllerGrafica(String option) {
-		super();
-		
-	}
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-    	 for (XYChart.Series<?, ?> series : upperChart.getData()) {
-             for (XYChart.Data<?, ?> data : series.getData()) {
-                 Node node = data.getNode();
-                 if (node != null) { // Asegurarse de que el nodo no sea nulo
-                     node.setOnMouseClicked(event -> showYValuePopup(data, event));
-                 }
-             }
-         }
-		
-	}
-    void showFrecuenciaCardiaca() {
-        upperChart.setTitle("FRECUENCIA CARDIACA");
-        paramLbl.setText("FRECUENCIA CARDIACA (lpm)");
+        super();
+    }
 
-        List<Double> data = generateRandomData(50, 200, 20);
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        String filePath = "/Users/benoitpanier/Documents/GitHub/ProyModuloBioIng/src/Datos /signal.txt"; // Ajusta esta ruta según sea necesario
+        List<Double> data = readDataFromFile(filePath);
+        plotData(data);
+    }
 
-        double lastValue = data.get(data.size() - 1);
+    private List<Double> readDataFromFile(String filePath) {
+        List<Double> data = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            boolean headerEnded = false;
+            while ((line = br.readLine()) != null) {
+                if (line.startsWith("# EndOfHeader")) {
+                    headerEnded = true;
+                    continue;
+                }
+                if (headerEnded && !line.startsWith("#")) {
+                    String[] values = line.split("\t");
+                    data.add(Double.parseDouble(values[5])); // Asumiendo que el valor de A3 está en la sexta columna
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
 
-        paramTxtFld.setText(String.format("%.2f", lastValue) + " lpm");
+    private void plotData(List<Double> data) {
+        upperChart.setTitle("Datos de miSeñal");
 
-        XYChart.Series series = new XYChart.Series();
-        series.setName("Frecuencia Cardiaca");
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("A3");
 
         for (int i = 0; i < data.size(); i++) {
-            double frecuenciaCardiaca = data.get(i);
-            series.getData().add(new XYChart.Data<>(Integer.toString(i + 1), frecuenciaCardiaca));
+            series.getData().add(new XYChart.Data<>(Integer.toString(i), data.get(i)));
         }
 
         upperChart.getData().clear();
         upperChart.getData().add(series);
 
-        upperYAxis.setAutoRanging(false);
-        upperYAxis.setLowerBound(50);
-        upperYAxis.setUpperBound(200);
-
-        // Asignar color a la serie
-        series.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: #008000;");
+        // Asignar eventos a los nodos de la gráfica
+        for (XYChart.Data<String, Number> dataPoint : series.getData()) {
+            Node node = dataPoint.getNode();
+            if (node != null) {
+                node.setOnMouseClicked(event -> showYValuePopup(dataPoint, event));
+            }
+        }
     }
-    
-    
-    private void showYValuePopup(XYChart.Data<?, ?> data, MouseEvent event) {
-        // Obtener el valor del eje Y del punto
-        Object yValue = data.getYValue();
 
-        // Formatear el valor del eje Y con dos decimales
-        String formattedYValue = String.format("%.2f", yValue);
-
-        // Crear una tooltip con el valor del eje Y
+    private void showYValuePopup(XYChart.Data<String, Number> data, MouseEvent event) {
+        Number yValue = data.getYValue();
+        String formattedYValue = String.format("%.2f", yValue.doubleValue());
         Tooltip tooltip = new Tooltip("Y: " + formattedYValue);
-
-        // Mostrar la tooltip cerca del punto en la gráfica
         tooltip.show(upperChart, event.getScreenX(), event.getScreenY());
 
-        // Cerrar la tooltip después de un breve período de tiempo
         PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished(evt -> tooltip.hide());
         delay.play();
     }
-    
-    
-    private List<Double> generateRandomData(double minValue, double maxValue, int count) {
-        Random random = new Random();
-        List<Double> data = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            double value = minValue + random.nextDouble() * (maxValue - minValue);
-            data.add(value);
-        }
-        return data;
-    }
 
     @FXML
     void backToUser(ActionEvent event) {
-    	try {
-			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/CoachView.fxml"));
-			ControllerCoachView controlLogin = new ControllerCoachView(coach);
+        try {
+            FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/CoachView.fxml"));
+            ControllerCoachView controlLogin = new ControllerCoachView(coach);
 
-			Stage actualStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+            Stage actualStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-			loaderLogin.setController(controlLogin);
-			Parent rootLogin = loaderLogin.load();
+            loaderLogin.setController(controlLogin);
+            Parent rootLogin = loaderLogin.load();
 
-			Stage stage = new Stage();
-			stage.setScene(new Scene(rootLogin));
-			stage.show();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(rootLogin));
+            stage.show();
 
-			actualStage.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+            actualStage.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
-
