@@ -57,7 +57,7 @@ public class ControllerGrafica implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String filePath = "/Users/benoitpanier/Documents/GitHub/ProyModuloBioIng/src/Datos /signal.txt"; // Ajusta esta ruta según sea necesario
+        String filePath = "/Users/benoitpanier/Documents/GitHub/ProyModuloBioIng/src/Datos /signal2.txt"; // Ajusta esta ruta según sea necesario
         List<Double> data = readDataFromFile(filePath);
         plotData(data);
     }

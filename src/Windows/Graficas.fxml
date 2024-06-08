@@ -21,7 +21,7 @@
          <bottom>
             <VBox alignment="CENTER" prefHeight="63.0" prefWidth="640.0" styleClass="diagonal-gradient" stylesheets="@../../application.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="backBtn" onAction="#backToUser" prefHeight="27.0" prefWidth="169.0" styleClass="boton2" stylesheets="@application.css" text="Cerrar" textFill="#c810eb">
+                  <Button fx:id="backBtn" onAction="#backToUser" prefHeight="27.0" prefWidth="169.0" text="Cerrar" textFill="#c810eb">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
