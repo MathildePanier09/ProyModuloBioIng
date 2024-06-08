@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -34,11 +36,28 @@
                                 </Label>
                                 <VBox alignment="CENTER" spacing="20.0">
                                     <children>
-                                        <Button fx:id="loginBttn" mnemonicParsing="false" onAction="#login" prefHeight="31.0" prefWidth="190.0" style="-fx-background-color: #a04ba3; -fx-text-fill: white;" styleClass="button" text="Login">
+                              <VBox>
+                                 <children>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../lib/Capture%20d’écran%202024-06-08%20à%2018.58.54.png" />
+                                       </image>
+                                    </ImageView>
+                                              <Button fx:id="loginBttn" mnemonicParsing="false" onAction="#login" prefHeight="31.0" prefWidth="190.0" style="-fx-background-color: #a04ba3; -fx-text-fill: white;" styleClass="button" text="Login">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                              <Button fx:id="newAccountBttn" mnemonicParsing="false" onAction="#createNewAccount" prefHeight="31.0" prefWidth="190.0" style="-fx-background-color: #a04ba3; -fx-text-fill: white;" styleClass="button" text="Crear Nueva Cuenta">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
                                  <VBox.margin>
-                                    <Insets bottom="20.0" top="60.0" />
-                                 </VBox.margin></Button>
-                                        <Button fx:id="newAccountBttn" mnemonicParsing="false" onAction="#createNewAccount" prefHeight="31.0" prefWidth="190.0" style="-fx-background-color: #a04ba3; -fx-text-fill: white;" styleClass="button" text="Crear Nueva Cuenta" />
+                                    <Insets left="200.0" top="10.0" />
+                                 </VBox.margin>
+                              </VBox>
                                     </children>
                                 </VBox>
                             </children>

@@ -40,7 +40,7 @@ public class ControllerMetricas {
     @FXML
     private void initialize() {
         // Inicializar el ComboBox con las opciones
-        typeCombo.getItems().addAll("tipo1", "tipo2", "tipo3");
+        typeCombo.getItems().addAll("Carga pesada", "Cardio", "Carga Ligera");
         deportistaLbl.setText("Nombre : " + deportista.getId());
 
         // Establecer el botón como invisible inicialmente
