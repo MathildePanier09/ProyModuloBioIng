@@ -34,7 +34,7 @@
                            <children>
                               <VBox spacing="10.0">
                                  <children>
-                                    <Label fx:id="deportistaLbl" prefHeight="25.0" prefWidth="130.0" text="ID Deportista" textFill="#a04ba3">
+                                    <Label fx:id="deportistaLbl" prefHeight="25.0" prefWidth="286.0" text="ID Deportista" textFill="#a04ba3">
                                        <VBox.margin>
                                           <Insets left="70.0" />
                                        </VBox.margin>

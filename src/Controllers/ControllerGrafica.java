@@ -31,109 +31,159 @@ import users.Coach;
 
 public class ControllerGrafica implements Initializable {
 
-    @FXML
-    private Button backBtn;
+	@FXML
+	private Button backBtn;
 
-    @FXML
-    private LineChart<String, Number> upperChart;
+	@FXML
+	private LineChart<String, Number> upperChart;
 
-    @FXML
-    private CategoryAxis upperXAxis;
+	@FXML
+	private CategoryAxis upperXAxis;
 
-    @FXML
-    private NumberAxis upperYAxis;
+	@FXML
+	private NumberAxis upperYAxis;
 
-    @FXML
-    private Label paramLbl;
+	@FXML
+	private Label paramLbl;
 
-    @FXML
-    private TextField paramTxtFld;
+	@FXML
+	private TextField paramTxtFld;
 
-    private Coach coach;
+	private Coach coach;
 
-    public ControllerGrafica(String option) {
-        super();
-    }
+	String opcion;
+	public ControllerGrafica(String opcion) {
+		this.opcion = opcion;
+	}
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        String filePath = "/Users/benoitpanier/Documents/GitHub/ProyModuloBioIng/src/Datos /signal2.txt"; // Ajusta esta ruta según sea necesario
-        List<Double> data = readDataFromFile(filePath);
-        plotData(data);
-    }
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		String filePath1 = "/Users/benoitpanier/Documents/GitHub/ProyModuloBioIng/src/Datos /signal1.txt"; // Ajusta esta ruta según sea necesario
+		String filePath2 = "/Users/benoitpanier/Documents/GitHub/ProyModuloBioIng/src/Datos /signal2.txt"; // Ajusta esta ruta según sea necesario
+		String filePath3 = "/Users/benoitpanier/Documents/GitHub/ProyModuloBioIng/src/Datos /signal3.txt"; // Ajusta esta ruta según sea necesario
 
-    private List<Double> readDataFromFile(String filePath) {
-        List<Double> data = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            boolean headerEnded = false;
-            while ((line = br.readLine()) != null) {
-                if (line.startsWith("# EndOfHeader")) {
-                    headerEnded = true;
-                    continue;
-                }
-                if (headerEnded && !line.startsWith("#")) {
-                    String[] values = line.split("\t");
-                    data.add(Double.parseDouble(values[5])); // Asumiendo que el valor de A3 está en la sexta columna
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return data;
-    }
+		List<Double> data1 = readDataFromFile(filePath1);
+		List<Double> data2 = readDataFromFile(filePath2);
+		List<Double> data3 = readDataFromFile(filePath3);
 
-    private void plotData(List<Double> data) {
-        upperChart.setTitle("Datos de miSeñal");
+		plotData(data1);
+		plotData(data2);
+		plotData(data3);
+	}
 
-        XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName("A3");
+	private List<Double> readDataFromFile(String filePath) {
+		List<Double> data = new ArrayList<>();
+		if (opcion =="tipo1") {
+			filePath = "/Users/benoitpanier/Documents/GitHub/ProyModuloBioIng/src/Datos /signal1.txt";
+		
+		try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+			String line;
+			boolean headerEnded = false;
+			while ((line = br.readLine()) != null) {
+				if (line.startsWith("# EndOfHeader")) {
+					headerEnded = true;
+					continue;
+				}
+				if (headerEnded && !line.startsWith("#")) {
+					String[] values = line.split("\t");
+					data.add(Double.parseDouble(values[5])); // Asumiendo que el valor de A3 está en la sexta columna
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}}
+		if (opcion =="tipo2") {
+			filePath = "/Users/benoitpanier/Documents/GitHub/ProyModuloBioIng/src/Datos /signal2.txt";
+		
+		try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+			String line;
+			boolean headerEnded = false;
+			while ((line = br.readLine()) != null) {
+				if (line.startsWith("# EndOfHeader")) {
+					headerEnded = true;
+					continue;
+				}
+				if (headerEnded && !line.startsWith("#")) {
+					String[] values = line.split("\t");
+					data.add(Double.parseDouble(values[5])); // Asumiendo que el valor de A3 está en la sexta columna
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}}
+		if (opcion =="tipo3") {
+			filePath = "/Users/benoitpanier/Documents/GitHub/ProyModuloBioIng/src/Datos /signal3.txt";
+		
+		try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+			String line;
+			boolean headerEnded = false;
+			while ((line = br.readLine()) != null) {
+				if (line.startsWith("# EndOfHeader")) {
+					headerEnded = true;
+					continue;
+				}
+				if (headerEnded && !line.startsWith("#")) {
+					String[] values = line.split("\t");
+					data.add(Double.parseDouble(values[5])); // Asumiendo que el valor de A3 está en la sexta columna
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}}
+		return data;
+	}
 
-        for (int i = 0; i < data.size(); i++) {
-            series.getData().add(new XYChart.Data<>(Integer.toString(i), data.get(i)));
-        }
+	private void plotData(List<Double> data) {
+		upperChart.setTitle("Datos de miSeñal");
 
-        upperChart.getData().clear();
-        upperChart.getData().add(series);
+		XYChart.Series<String, Number> series = new XYChart.Series<>();
+		series.setName("A3");
 
-        // Asignar eventos a los nodos de la gráfica
-        for (XYChart.Data<String, Number> dataPoint : series.getData()) {
-            Node node = dataPoint.getNode();
-            if (node != null) {
-                node.setOnMouseClicked(event -> showYValuePopup(dataPoint, event));
-            }
-        }
-    }
+		for (int i = 0; i < data.size(); i++) {
+			series.getData().add(new XYChart.Data<>(Integer.toString(i), data.get(i)));
+		}
 
-    private void showYValuePopup(XYChart.Data<String, Number> data, MouseEvent event) {
-        Number yValue = data.getYValue();
-        String formattedYValue = String.format("%.2f", yValue.doubleValue());
-        Tooltip tooltip = new Tooltip("Y: " + formattedYValue);
-        tooltip.show(upperChart, event.getScreenX(), event.getScreenY());
+		upperChart.getData().clear();
+		upperChart.getData().add(series);
 
-        PauseTransition delay = new PauseTransition(Duration.seconds(3));
-        delay.setOnFinished(evt -> tooltip.hide());
-        delay.play();
-    }
+		// Asignar eventos a los nodos de la gráfica
+		for (XYChart.Data<String, Number> dataPoint : series.getData()) {
+			Node node = dataPoint.getNode();
+			if (node != null) {
+				node.setOnMouseClicked(event -> showYValuePopup(dataPoint, event));
+			}
+		}
+	}
 
-    @FXML
-    void backToUser(ActionEvent event) {
-        try {
-            FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/CoachView.fxml"));
-            ControllerCoachView controlLogin = new ControllerCoachView(coach);
+	private void showYValuePopup(XYChart.Data<String, Number> data, MouseEvent event) {
+		Number yValue = data.getYValue();
+		String formattedYValue = String.format("%.2f", yValue.doubleValue());
+		Tooltip tooltip = new Tooltip("Y: " + formattedYValue);
+		tooltip.show(upperChart, event.getScreenX(), event.getScreenY());
 
-            Stage actualStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		PauseTransition delay = new PauseTransition(Duration.seconds(3));
+		delay.setOnFinished(evt -> tooltip.hide());
+		delay.play();
+	}
 
-            loaderLogin.setController(controlLogin);
-            Parent rootLogin = loaderLogin.load();
+	@FXML
+	void backToUser(ActionEvent event) {
+		try {
+			FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/Windows/Login.fxml"));
+			ControllerLogin controlLogin = new ControllerLogin();
 
-            Stage stage = new Stage();
-            stage.setScene(new Scene(rootLogin));
-            stage.show();
+			Stage actualStage=(Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            actualStage.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+			loaderLogin.setController(controlLogin);
+			Parent rootLogin = loaderLogin.load();
+
+			Stage stage = new Stage();
+			stage.setScene(new Scene(rootLogin));
+			stage.show();
+
+			actualStage.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
