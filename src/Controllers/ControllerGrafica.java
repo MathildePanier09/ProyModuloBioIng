@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.ResourceBundle;
 
 import javafx.animation.PauseTransition;
@@ -58,6 +59,7 @@ public class ControllerGrafica implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
 		String filePath1 = "/Users/benoitpanier/Documents/GitHub/ProyModuloBioIng/src/Datos /signal1.txt"; // Ajusta esta ruta según sea necesario
 		String filePath2 = "/Users/benoitpanier/Documents/GitHub/ProyModuloBioIng/src/Datos /signal2.txt"; // Ajusta esta ruta según sea necesario
 		String filePath3 = "/Users/benoitpanier/Documents/GitHub/ProyModuloBioIng/src/Datos /signal3.txt"; // Ajusta esta ruta según sea necesario
@@ -73,7 +75,7 @@ public class ControllerGrafica implements Initializable {
 
 	private List<Double> readDataFromFile(String filePath) {
 		List<Double> data = new ArrayList<>();
-		if (opcion =="tipo1") {
+		if (opcion =="Carga pesada") {
 			filePath = "/Users/benoitpanier/Documents/GitHub/ProyModuloBioIng/src/Datos /signal1.txt";
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -92,7 +94,7 @@ public class ControllerGrafica implements Initializable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}}
-		if (opcion =="tipo2") {
+		if (opcion =="Cardio") {
 			filePath = "/Users/benoitpanier/Documents/GitHub/ProyModuloBioIng/src/Datos /signal2.txt";
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -111,7 +113,7 @@ public class ControllerGrafica implements Initializable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}}
-		if (opcion =="tipo3") {
+		if (opcion =="Carga Ligera") {
 			filePath = "/Users/benoitpanier/Documents/GitHub/ProyModuloBioIng/src/Datos /signal3.txt";
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {

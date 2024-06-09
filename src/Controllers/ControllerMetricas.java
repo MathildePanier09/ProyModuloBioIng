@@ -41,7 +41,7 @@ public class ControllerMetricas {
     private void initialize() {
         // Inicializar el ComboBox con las opciones
         typeCombo.getItems().addAll("Carga pesada", "Cardio", "Carga Ligera");
-        deportistaLbl.setText("Nombre : " + deportista.getId());
+        deportistaLbl.setText("Nombre : " + deportista.getName() + " , " + deportista.getId());
 
         // Establecer el botón como invisible inicialmente
         entrarBttn.setVisible(false);
